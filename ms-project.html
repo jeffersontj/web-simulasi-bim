@@ -63,6 +63,10 @@
     <!-- SKRIP OTOMATISASI -->
     <script>
         // --- Konfigurasi ---
+        // !!! PENTING: Ganti nilai di bawah ini dengan username dan nama repository GitHub Anda !!!
+        const USERNAME = 'jeffersontj'; // Ganti 'USERNAME-ANDA' dengan username GitHub Anda
+        const REPO_NAME = 'web-simulasi-bim'; // Ganti 'NAMA-REPO-ANDA' dengan nama repository Anda (misal: 'web-simulasi-bim')
+        
         // Path ke folder file di dalam repository GitHub Anda
         const FOLDER_PATH = 'files/ms-project';
         // --------------------
@@ -73,78 +77,13 @@
             const loadingElement = document.getElementById('loading');
 
             try {
-                // 1. Dapatkan info repo secara dinamis dari URL (USERNAME.github.io/REPO_NAME)
-                const hostParts = window.location.hostname.split('.');
-                const pathParts = window.location.pathname.split('/').filter(p => p);
-                
-                // Periksa apakah ini URL GitHub Pages
-                if (hostParts.length < 3 || hostParts[1] !== 'github' || hostParts[2] !== 'io') {
-                     throw new Error('Situs ini harus di-host di GitHub Pages agar berfungsi.');
-                }
-
-                const USERNAME = hostParts[0];
-                const REPO_NAME = pathParts[0];
-
-                if (!USERNAME || !REPO_NAME) {
-                    throw new Error('Tidak dapat mendeteksi username atau nama repo dari URL.');
+                // 1. Validasi konfigurasi
+                if (USERNAME === 'USERNAME-ANDA' || REPO_NAME === 'NAMA-REPO-ANDA') {
+                    throw new Error('Harap edit file HTML ini dan atur variabel USERNAME dan REPO_NAME di dalam tag <script>.');
                 }
 
                 // 2. Buat URL API GitHub
                 const apiUrl = `https://api.github.com/repos/${USERNAME}/${REPO_NAME}/contents/${FOLDER_PATH}`;
 
                 // 3. Ambil data dari API
-                const response = await fetch(apiUrl);
-                if (!response.ok) {
-                    throw new Error(`Gagal mengambil data dari GitHub API (Error ${response.status})`);
-                }
-                
-                const files = await response.json();
-
-                // 4. Sembunyikan loading
-                loadingElement.style.display = 'none';
-
-                // 5. Periksa apakah ada file
-                if (!Array.isArray(files) || files.length === 0) {
-                    fileListElement.innerHTML = '<li class="p-6 text-center text-gray-500">Tidak ada file yang ditemukan di folder ini.</li>';
-                    return;
-                }
-
-                // 6. Bangun daftar HTML
-                let htmlContent = '';
-                files.forEach(file => {
-                    // Hanya tampilkan file, bukan folder
-                    if (file.type === 'file') {
-                        htmlContent += `
-                            <li class="p-4 sm:p-6 flex items-center justify-between hover:bg-gray-50">
-                                <div class="flex items-center min-w-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-green-500 mr-4 hidden sm:block">
-                                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                    </svg>
-                                    <div class="min-w-0">
-                                        <p class="text-lg font-medium text-blue-600 truncate">${file.name}</p>
-                                    </div>
-                                </div>
-                                <a href="${file.download_url}" 
-                                   class="ml-4 inline-block bg-blue-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors text-sm"
-                                   download>
-                                   Unduh
-                                </a>
-                            </li>
-                        `;
-                    }
-                });
-
-                fileListElement.innerHTML = htmlContent;
-
-            } catch (error) {
-                console.error('Error:', error);
-                loadingElement.style.display = 'none';
-                fileListElement.innerHTML = `<li class="p-6 text-center text-red-500">Gagal memuat daftar file. ${error.message}</li>`;
-            }
-        }
-
-        // Jalankan fungsi saat halaman dimuat
-        document.addEventListener('DOMContentLoaded', fetchAndDisplayFiles);
-    </script>
-</body>
-</html>
+// ... existing code ... -->
