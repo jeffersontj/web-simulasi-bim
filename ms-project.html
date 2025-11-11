@@ -86,4 +86,58 @@
                 const apiUrl = `https://api.github.com/repos/${USERNAME}/${REPO_NAME}/contents/${FOLDER_PATH}`;
 
                 // 3. Ambil data dari API
-// ... existing code ... -->
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error(`Gagal mengambil data dari GitHub API (Error ${response.status})`);
+                }
+                
+                const files = await response.json();
+
+                // 4. Sembunyikan loading
+                loadingElement.style.display = 'none';
+
+                // 5. Periksa apakah ada file
+                if (!Array.isArray(files) || files.length === 0) {
+                    fileListElement.innerHTML = '<li class="p-6 text-center text-gray-500">Tidak ada file yang ditemukan di folder ini.</li>';
+                    return;
+                }
+
+                // 6. Bangun daftar HTML
+                let htmlContent = '';
+                files.forEach(file => {
+                    // Hanya tampilkan file, bukan folder
+                    if (file.type === 'file') {
+                        htmlContent += `
+                            <li class="p-4 sm:p-6 flex items-center justify-between hover:bg-gray-50">
+                                <div class="flex items-center min-w-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-green-500 mr-4 hidden sm:block">
+                                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                    </svg>
+                                    <div class="min-w-0">
+                                        <p class="text-lg font-medium text-blue-600 truncate">${file.name}</p>
+                                    </div>
+                                </div>
+                                <a href="${file.download_url}" 
+                                   class="ml-4 inline-block bg-blue-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors text-sm"
+                                   download>
+                                   Unduh
+                                </a>
+                            </li>
+                        `;
+                    }
+                });
+
+                fileListElement.innerHTML = htmlContent;
+
+            } catch (error) {
+                console.error('Error:', error);
+                loadingElement.style.display = 'none';
+                fileListElement.innerHTML = `<li class="p-6 text-center text-red-500">Gagal memuat daftar file. ${error.message}</li>`;
+            }
+        }
+
+        // Jalankan fungsi saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', fetchAndDisplayFiles);
+    </script>
+</body>
+</html>
