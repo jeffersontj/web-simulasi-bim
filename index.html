@@ -63,17 +63,17 @@
                 <div class="aspect-w-16 aspect-h-9">
                     <!-- 
                       GANTI INI DENGAN VIDEO ANDA
-                      Cara termudah adalah upload ke YouTube/Vimeo dan ganti 'src' di bawah ini
-                      dengan link embed dari video Anda.
+                      1. Buat folder "video" di dalam folder "files".
+                      2. Taruh file video Anda (misal: "simulasi.mp4") di dalam folder "files/video/".
+                      3. Pastikan nama file di "src" di bawah ini SAMA. 
                     -->
-                    <iframe 
-                        class="w-full h-full"
-                        src="https://youtu.be/CknRDcPNdRk?si=ROr--V-8ZHGfyr8_" 
-                        title="YouTube video player" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
+                    <video 
+                        class="w-full h-auto rounded-lg"
+                        src="files/video/simulasi.mp4" 
+                        controls 
+                        preload="metadata">
+                        Browser Anda tidak mendukung tag video.
+                    </video>
                 </div>
             </div>
         </section>
