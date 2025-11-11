@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyek Simulasi BIM</title>
+    <!-- Memuat Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Memuat Font Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icon untuk Download (Heroicons) -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Efek hover yang lebih halus */
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        /* Icon styling */
+        .icon-wrapper {
+            width: 3rem; /* 48px */
+            height: 3rem; /* 48px */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem; /* rounded-lg */
+            margin-bottom: 1rem; /* mb-4 */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-blue-600">Proyek BIM</a>
+            <div class="space-x-4">
+                <a href="index.html#home" class="text-gray-600 hover:text-blue-600">Home</a>
+                <a href="index.html#downloads" class="text-gray-600 hover:text-blue-600">Downloads</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+
+        <!-- Bagian Home - Video Simulasi -->
+        <section id="home" class="mb-16 scroll-mt-20">
+            <h1 class="text-4xl font-bold text-center mb-8">Simulasi BIM Proyek</h1>
+            <p class="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+                Selamat datang di halaman proyek kami. Di bawah ini adalah video simulasi BIM yang menunjukkan alur kerja dan visualisasi proyek kami.
+            </p>
+
+            <!-- Placeholder Video -->
+            <div class="bg-gray-900 rounded-lg shadow-xl overflow-hidden max-w-4xl mx-auto">
+                <div class="aspect-w-16 aspect-h-9">
+                    <!-- 
+                      GANTI INI DENGAN VIDEO ANDA
+                      Cara termudah adalah upload ke YouTube/Vimeo dan ganti 'src' di bawah ini
+                      dengan link embed dari video Anda.
+                    -->
+                    <iframe 
+                        class="w-full h-full"
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian Downloads -->
+        <section id="downloads" class="scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-10">Unduh File Proyek</h2>
+            <p class="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+                Pilih kategori untuk melihat semua file yang tersedia untuk diunduh.
+            </p>
+
+            <!-- Grid untuk Kartu Navigasi Download -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <!-- Kartu 1: Export Unity -->
+                <a href="unity-export.html" class="block bg-white rounded-lg shadow-lg overflow-hidden card-hover p-6 text-center">
+                    <div class="icon-wrapper bg-blue-100 text-blue-600 mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.025 10.5c0 .621-.504 1.125-1.125 1.125H4.875c-.621 0-1.125-.504-1.125-1.125V7.5m16.5 0-3.21-3.21c-.4-.4-.97-.6-1.59-.6H9.93c-.62 0-1.19.2-1.59.6L5.13 7.5m15.12 0a1.125 1.125 0 0 1-1.125 1.125H5.875a1.125 1.125 0 0 1-1.125-1.125m15.12 0c0 .621-.504 1.125-1.125 1.125H5.875c-.621 0-1.125-.504-1.125-1.125m16.5 0-3.21-3.21c-.4-.4-.97-.6-1.59-.6H9.93c-.62 0-1.19.2-1.59.6L5.13 7.5" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Export Unity</h3>
+                    <p class="text-gray-600">Lihat file .zip simulasi interaktif.</p>
+                </a>
+
+                <!-- Kartu 2: Microsoft Project -->
+                <a href="ms-project.html" class="block bg-white rounded-lg shadow-lg overflow-hidden card-hover p-6 text-center">
+                    <div class="icon-wrapper bg-green-100 text-green-600 mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Microsoft Project</h3>
+                    <p class="text-gray-600">Lihat file jadwal .mpp.</p>
+                </a>
+
+                <!-- Kartu 3: Risk Management -->
+                <a href="risk-management.html" class="block bg-white rounded-lg shadow-lg overflow-hidden card-hover p-6 text-center">
+                    <div class="icon-wrapper bg-yellow-100 text-yellow-600 mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Manajemen Risiko</h3>
+                    <p class="text-gray-600">Lihat dokumen analisis risiko.</p>
+                </a>
+
+                <!-- Kartu 4: Perhitungan Karbon -->
+                <a href="carbon.html" class="block bg-white rounded-lg shadow-lg overflow-hidden card-hover p-6 text-center">
+                    <div class="icon-wrapper bg-gray-100 text-gray-600 mx-auto">
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.07a2.25 2.25 0 0 1-2.25 2.25H5.85a2.25 2.25 0 0 1-2.25-2.25v-4.07a2.25 2.25 0 0 1 2.25-2.25h12.15a2.25 2.25 0 0 1 2.25 2.25Z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M18 14.25c.621 0 1.125-.504 1.125-1.125V7.5a2.25 2.25 0 0 0-2.25-2.25H8.25A2.25 2.25 0 0 0 6 7.5v5.625c0 .621.504 1.125 1.125 1.125H18Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Analisis Karbon</h3>
+                    <p class="text-gray-600">Lihat data perhitungan emisi.</p>
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-16 border-t border-gray-200">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-500">
+            &copy; 2025 Proyek Simulasi BIM. Semua Hak Cipta Dilindungi.
+        </div>
+    </footer>
+
+</body>
+</html>
