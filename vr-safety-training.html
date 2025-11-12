@@ -3,18 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Read Journal 1 | BIM Simulation Project</title>
+    <title>VR Safety Training App | BIM Simulation Project</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
+        body { font-family: 'Inter', sans-serif; }
+        html { scroll-behavior: smooth; }
         .mobile-menu {
             max-height: 0;
             overflow: hidden;
@@ -23,14 +19,11 @@
         .mobile-menu.active {
             max-height: 500px;
         }
-        .pdf-embed {
-            width: 100%;
-            height: 100vh; /* Full viewport height */
-        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
+    <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 z-50 border-b border-gray-200">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
@@ -42,9 +35,9 @@
                     <a href="index.html#home" class="text-gray-600 hover:text-blue-600 font-medium transition">Home</a>
                     <a href="index.html#about" class="text-gray-600 hover:text-blue-600 font-medium transition">About</a>
                     <a href="index.html#features" class="text-gray-600 hover:text-blue-600 font-medium transition">Features</a>
-                    <a href="journal.html" class="text-blue-600 font-bold transition">Journal</a>
+                    <a href="journal.html" class="text-gray-600 hover:text-blue-600 font-medium transition">Journal</a>
                     <a href="index.html#downloads" class="text-gray-600 hover:text-blue-600 font-medium transition">Downloads</a>
-                    <a href="vr-safety-training.html" class="text-gray-600 hover:text-blue-600 font-medium transition">VR Safety Training App</a>
+                    <a href="vr-safety-training.html" class="text-blue-600 font-bold transition">VR Safety Training App</a>
                     <a href="index.html#authors" class="text-gray-600 hover:text-blue-600 font-medium transition">Authors</a>
                 </div>
                 
@@ -60,9 +53,9 @@
                     <a href="index.html#home" class="block py-2 text-gray-600 hover:text-blue-600">Home</a>
                     <a href="index.html#about" class="block py-2 text-gray-600 hover:text-blue-600">About</a>
                     <a href="index.html#features" class="block py-2 text-gray-600 hover:text-blue-600">Features</a>
-                    <a href="journal.html" class="block py-2 text-blue-600 font-semibold">Journal</a>
+                    <a href="journal.html" class="block py-2 text-gray-600 hover:text-blue-600">Journal</a>
                     <a href="index.html#downloads" class="block py-2 text-gray-600 hover:text-blue-600">Downloads</a>
-                    <a href="vr-safety-training.html" class="block py-2 text-gray-600 hover:text-blue-600">VR Safety Training App</a>
+                    <a href="vr-safety-training.html" class="block py-2 text-blue-600 font-semibold">VR Safety Training App</a>
                     <a href="index.html#authors" class="block py-2 text-gray-600 hover:text-blue-600">Authors</a>
                 </div>
             </div>
@@ -71,49 +64,56 @@
 
     <!-- Main Content -->
     <main class="container mx-auto px-6 py-12">
-        <div class="max-w-5xl mx-auto">
-            
+        <div class="max-w-4xl mx-auto">
             <!-- Breadcrumb Navigation -->
             <div class="mb-4 text-sm text-gray-500">
                 <a href="index.html" class="hover:underline">Home</a>
                 <span class="mx-2">&gt;</span>
-                <a href="journal.html" class="hover:underline">Journal Archive</a>
-                <span class="mx-2">&gt;</span>
-                <span>Reading Journal 1</span>
+                <span>VR Safety Training</span>
             </div>
             
-            <h1 class="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Automating Construction Phase Detection (Journal 1)</h1>
-            
-            <!-- Back Button -->
-            <a href="journal.html" class="mb-6 inline-flex items-center px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition shadow-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-                </svg>
-                Back to Journal List
-            </a>
-
-            <!-- Embedded PDF Viewer -->
-            <div class="bg-white rounded-lg shadow-xl overflow-hidden border border-gray-200">
-                <!-- 
-                    IMPORTANT: Change "journal_file_1.pdf" to your actual file name.
-                    Make sure the file is inside the "files/journal/" folder.
-                -->
-                <embed 
-                    src="files/journal/journal_file_1.pdf" 
-                    type="application/pdf" 
-                    class="pdf-embed"
-                />
-            </div>
-            <p class="text-center text-gray-600 mt-6">
-                Use the controls on the viewer above to navigate, zoom, or 
-                <a href="files/journal/journal_file_1.pdf" class="text-blue-600 font-medium hover:underline" download>
-                    download the PDF
-                </a>.
+            <h1 class="text-4xl font-bold mb-8 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">VR Application Training for Construction Safety</h1>
+            <p class="text-lg text-gray-600 mb-10">
+                Download our immersive Virtual Reality application to experience and train for construction site safety scenarios. This simulation is designed to improve hazard recognition and safety protocol adherence in a risk-free environment.
             </p>
+
+            <!-- Static Download Section -->
+            <div class="bg-white rounded-lg shadow-xl overflow-hidden border border-gray-200 p-8 md:p-12 text-center">
+                <img 
+                    src="files/video/vr_preview.png" 
+                    alt="VR Safety Training Preview" 
+                    class="rounded-lg shadow-md mb-10 w-full max-w-2xl mx-auto border"
+                    onerror="this.src='https://placehold.co/1280x720/667eea/ffffff?text=VR+Safety+Training'"
+                >
+                <p class="text-2xl text-gray-800 font-bold mb-8">VR Safety Application (v1.0)</p>
+                
+                <!-- 
+                    IMPORTANT: 
+                    1. Replace "https://drive.google.com/your-share-link-here" 
+                       with your actual Google Drive sharing link.
+                    2. Ensure your Google Drive link is set to "Anyone with the link can view".
+                -->
+                <a href="https://drive.google.com/file/d/1vPfc8m2P9XFqzDizjnU4B-Y8bL3QT5Ok/view?usp=sharing" 
+                   target="_blank" rel="noopener noreferrer"
+                   class="inline-block bg-blue-600 text-white font-bold py-4 px-10 rounded-lg hover:bg-blue-700 transition-colors text-lg shadow-lg hover:shadow-xl transform hover:scale-105">
+                   Download from Google Drive
+                </a>
+                
+                <div class="text-gray-500 text-sm mt-8 max-w-md mx-auto">
+                    <p class="mb-2">
+                        <strong>Requires:</strong> VR Headset (e.g., Meta Quest, HTC Vive)
+                    </p>
+                    <p>
+                        <strong>Instructions:</strong> Unzip the file and follow the 'README.txt' file for installation instructions on your device.
+                    </p>
+                </div>
+            </div>
+            <!-- End Static Download Section -->
 
         </div>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-gray-900 text-white mt-20">
         <div class="container mx-auto px-6 py-12">
             <div class="grid md:grid-cols-3 gap-8 mb-8">
@@ -163,6 +163,5 @@
             });
         });
     </script>
-
 </body>
 </html>
