@@ -1,0 +1,30 @@
+Task ID,Task Name,Duration (Days),Predecessors,Resources,Cost,Priority,Notes
+2,Foundation & Piles,17,,Project Manager; Site Engineer; Excavator; Foreman; Skilled Labor; General Labor; Concrete; Rebar,"$32,080.74 ",1000,93 objects
+3,Level 1 Columns,8,2FS-5 days,Project Manager; Site Engineer; Crane; Foreman; Skilled Labor; Concrete; Rebar; Steel,"$56,243.76 ",800,65 objects
+4,Level 1 Beams & Slabs,10,3FS-1,Project Manager; Site Engineer; Crane; Foreman; Skilled Labor; Concrete; Rebar; Steel,"$60,481.52 ",700,154 objects
+5,Level 2 Columns,8,4FS-2,Project Manager; Site Engineer; Crane; Foreman; Skilled Labor; Concrete; Rebar; Steel,"$55,803.66 ",800,138 objects
+6,Level 2 Beams & Slabs,10,5FS-1,Project Manager; Site Engineer; Crane; Foreman; Skilled Labor; Concrete; Rebar; Steel,"$70,242.60 ",700,248 objects
+7,Level 3 Columns,8,6FS-2,Project Manager; Site Engineer; Crane; Foreman; Skilled Labor; Concrete; Rebar; Steel,"$65,870.28 ",800,45 objects
+8,Level 3 Beams & Slabs,10,7FS-1,Project Manager; Site Engineer; Crane; Foreman; Skilled Labor; Concrete; Rebar; Steel,"$47,647.86 ",700,161 objects
+9,Level 4 Columns,8,8FS-2,Project Manager; Site Engineer; Crane; Foreman; Skilled Labor; Concrete; Rebar; Steel,"$56,535.30 ",800,131 objects
+10,Level 4 Beams & Slabs,10,9FS-1,Project Manager; Site Engineer; Crane; Foreman; Skilled Labor; Concrete; Rebar; Steel,"$53,494.38 ",700,91 objects
+11,Level 5 Columns,8,10FS-2,Project Manager; Site Engineer; Crane; Foreman; Skilled Labor; Concrete; Rebar; Steel,"$51,380.90 ",800,128 objects
+12,Level 5 Beams & Slabs,10,11FS-1,Project Manager; Site Engineer; Crane; Foreman; Skilled Labor; Concrete; Rebar; Steel,"$59,714.43 ",700,164 objects
+13,Level 6 Columns,8,12FS-2,Project Manager; Site Engineer; Crane; Foreman; Skilled Labor; Concrete; Rebar; Steel,"$37,721.16 ",800,129 objects
+14,Level 6 Beams & Slabs,10,13FS-1,Project Manager; Site Engineer; Crane; Foreman; Skilled Labor; Concrete; Rebar; Steel,"$62,086.85 ",700,172 objects
+15,Level 7 Columns,8,14FS-2,Project Manager; Site Engineer; Crane; Foreman; Skilled Labor; Concrete; Rebar; Steel,"$39,775.98 ",800,123 objects
+16,Level 7 Beams & Slabs,10,15FS-1,Project Manager; Site Engineer; Crane; Foreman; Skilled Labor; Concrete; Rebar; Steel,"$62,055.74 ",700,176 objects
+17,Level 8 Columns,8,16FS-2,Project Manager; Site Engineer; Crane; Foreman; Skilled Labor; Concrete; Rebar; Steel,"$32,611.02 ",800,125 objects
+18,Level 8 Beams & Slabs,10,17FS-1,Project Manager; Site Engineer; Crane; Foreman; Skilled Labor; Concrete; Rebar; Steel,"$50,255.27 ",700,172 objects
+19,Roof Columns,8,18FS-2,Project Manager; Site Engineer; Crane; Foreman; Skilled Labor; Concrete; Rebar; Steel,"$52,615.68 ",800,105 objects
+20,Roof Beams & Slabs,10,19FS-1,Project Manager; Site Engineer; Crane; Foreman; Skilled Labor; Concrete; Rebar; Steel,"$68,378.01 ",700,410 objects
+21,Level 1 Architecture,15,20FS-8,Project Manager; Site Engineer; Foreman; Skilled Labor; General Labor,"$61,422.50 ",500,211 objects
+22,Level 2 Architecture,15,21FS-8,Project Manager; Site Engineer; Foreman; Skilled Labor; General Labor,"$44,240.95 ",500,324 objects
+23,Level 3 Architecture,15,22FS-8,Project Manager; Site Engineer; Foreman; Skilled Labor; General Labor,"$59,898.58 ",500,494 objects
+24,Level 4 Architecture,15,23FS-8,Project Manager; Site Engineer; Foreman; Skilled Labor; General Labor,"$56,286.76 ",500,474 objects
+25,Level 5 Architecture,15,24FS-8,Project Manager; Site Engineer; Foreman; Skilled Labor; General Labor,"$53,237.20 ",500,480 objects
+26,Level 6 Architecture,15,25FS-8,Project Manager; Site Engineer; Foreman; Skilled Labor; General Labor,"$53,631.28 ",500,500 objects
+27,Level 7 Architecture,15,26FS-8,Project Manager; Site Engineer; Foreman; Skilled Labor; General Labor,"$54,621.85 ",500,500 objects
+28,Level 8 Architecture,15,27FS-8,Project Manager; Site Engineer; Foreman; Skilled Labor; General Labor,"$48,272.96 ",500,429 objects
+29,Roof Architecture,15,28FS-8,Project Manager; Site Engineer; Foreman; Skilled Labor; General Labor,"$48,598.17 ",500,158 objects
+30,MEP Installation,25,29FS-15,Project Manager; Site Engineer; Foreman; Skilled Labor,"$44,789.10 ",300,747 objects

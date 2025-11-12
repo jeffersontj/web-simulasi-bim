@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download MS Excel Files</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-blue-600">BIM Project</a>
+            <div class="space-x-4">
+                <a href="index.html#home" class="text-gray-600 hover:text-blue-600">Home</a>
+                <a href="index.html#downloads" class="text-gray-600 hover:text-blue-600">Downloads</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+        <div class="max-w-4xl mx-auto">
+            <!-- Breadcrumb Navigation -->
+            <div class="mb-4 text-sm text-gray-500">
+                <a href="index.html#downloads" class="hover:underline">Downloads</a>
+                <span class="mx-2">&gt;</span>
+                <span>MS Excel</span>
+            </div>
+            
+            <h1 class="text-3xl font-bold mb-8">MS Excel Files (.xlsx)</h1>
+            <p class="text-lg text-gray-600 mb-10">
+                This file list is updated automatically. Click to download.
+            </p>
+
+            <!-- Dynamic File List -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <!-- Loading Placeholder -->
+                <div id="loading" class="p-6 text-center text-gray-500">
+                    <p>Loading file list...</p>
+                </div>
+                <!-- File List Will be Injected Here by JavaScript -->
+                <ul id="file-list" class="divide-y divide-gray-200">
+                    <!-- Dynamic content -->
+                </ul>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-16 border-t border-gray-200">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-500">
+            &copy; 2025 BIM Simulation Project. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- AUTOMATION SCRIPT -->
+    <script>
+        // --- Configuration ---
+        // !!! IMPORTANT: Change the values below to your GitHub username and repository name !!!
+        const USERNAME = 'jeffersontj'; // Change 'USERNAME-ANDA' to your GitHub username
+        const REPO_NAME = 'web-simulasi-bim'; // Change 'NAMA-REPO-ANDA' to your repository name (e.g., 'web-simulasi-bim')
+
+        // Path to the files folder within your GitHub repository
+        const FOLDER_PATH = 'files/ms-excel';
+        // --------------------
+
+        // Function to fetch and display files
+        async function fetchAndDisplayFiles() {
+            const fileListElement = document.getElementById('file-list');
+            const loadingElement = document.getElementById('loading');
+
+            try {
+                // 1. Validate configuration
+                if (USERNAME === 'USERNAME-ANDA' || REPO_NAME === 'NAMA-REPO-ANDA') {
+                    throw new Error('Please edit this HTML file and set the USERNAME and REPO_NAME variables inside the <script> tag.');
+                }
+
+                // 2. Build the GitHub API URL
+                const apiUrl = `https://api.github.com/repos/${USERNAME}/${REPO_NAME}/contents/${FOLDER_PATH}`;
+
+                // 3. Fetch data from the API
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch data from GitHub API (Error ${response.status})`);
+                }
+                
+                const files = await response.json();
+
+                // 4. Hide loading
+                loadingElement.style.display = 'none';
+
+                // 5. Check if files exist
+                if (!Array.isArray(files) || files.length === 0) {
+                    fileListElement.innerHTML = '<li class="p-6 text-center text-gray-500">No files found in this folder.</li>';
+                    return;
+                }
+
+                // 6. Build the HTML list
+                let htmlContent = '';
+                files.forEach(file => {
+                    // Only show files, not folders
+                    if (file.type === 'file') {
+                        htmlContent += `
+                            <li class="p-4 sm:p-6 flex items-center justify-between hover:bg-gray-50">
+                                <div class="flex items-center min-w-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-500 mr-4 hidden sm:block">
+                                      <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.07a2.25 2.25 0 0 1-2.25 2.25H5.85a2.25 2.25 0 0 1-2.25-2.25v-4.07a2.25 2.25 0 0 1 2.25-2.25h12.15a2.25 2.25 0 0 1 2.25 2.25Z" />
+                                      <path stroke-linecap="round" stroke-linejoin="round" d="M18 14.25c.621 0 1.125-.504 1.125-1.125V7.5a2.25 2.25 0 0 0-2.25-2.25H8.25A2.25 2.25 0 0 0 6 7.5v5.625c0 .621.504 1.125 1.125 1.125H18Z" />
+                                    </svg>
+                                    <div class="min-w-0">
+                                        <p class="text-lg font-medium text-blue-600 truncate">${file.name}</p>
+                                    </div>
+                                </div>
+                                <a href="${file.download_url}" 
+                                   class="ml-4 inline-block bg-blue-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors text-sm"
+                                   download>
+                                   Download
+                                </a>
+                            </li>
+                        `;
+                    }
+                });
+
+                fileListElement.innerHTML = htmlContent;
+
+            } catch (error) {
+                console.error('Error:', error);
+                loadingElement.style.display = 'none';
+                fileListElement.innerHTML = `<li class="p-6 text-center text-red-500">Failed to load file list. ${error.message}</li>`;
+            }
+        }
+
+        // Run the function when the page loads
+        document.addEventListener('DOMContentLoaded', fetchAndDisplayFiles);
+    </script>
+</body>
+</html>

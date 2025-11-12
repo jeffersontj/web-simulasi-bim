@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyek Simulasi BIM</title>
-    <!-- Memuat Tailwind CSS -->
+    <title>BIM Simulation Project</title>
+    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Memuat Font Inter -->
+    <!-- Load Inter Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Icon untuk Download (Heroicons) -->
+    <!-- Icon for Download (Heroicons) -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
-        /* Efek hover yang lebih halus */
+        /* Smoother hover effect */
         .card-hover {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -40,10 +40,11 @@
     <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-blue-600">Proyek BIM</a>
+            <a href="index.html" class="text-2xl font-bold text-blue-600">BIM Project</a>
             <div class="space-x-4">
                 <a href="index.html#home" class="text-gray-600 hover:text-blue-600">Home</a>
                 <a href="index.html#downloads" class="text-gray-600 hover:text-blue-600">Downloads</a>
+                <a href="index.html#authors" class="text-gray-600 hover:text-blue-600">Authors</a>
             </div>
         </nav>
     </header>
@@ -51,87 +52,119 @@
     <!-- Main Content -->
     <main class="container mx-auto px-6 py-12">
 
-        <!-- Bagian Home - Video Simulasi -->
+        <!-- Home Section - Simulation Video -->
         <section id="home" class="mb-16 scroll-mt-20">
-            <h1 class="text-4xl font-bold text-center mb-8">Simulasi BIM Proyek</h1>
+            <h1 class="text-4xl font-bold text-center mb-8">BIM Project Simulation</h1>
             <p class="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
-                Selamat datang di halaman proyek kami. Di bawah ini adalah video simulasi BIM yang menunjukkan alur kerja dan visualisasi proyek kami.
+                Welcome to our project page. Below is a BIM simulation video demonstrating our project's workflow and visualization.
             </p>
 
-            <!-- Placeholder Video -->
+            <!-- Video Player -->
             <div class="bg-gray-900 rounded-lg shadow-xl overflow-hidden max-w-4xl mx-auto">
                 <div class="aspect-w-16 aspect-h-9">
                     <!-- 
-                      GANTI INI DENGAN VIDEO ANDA
-                      1. Buat folder "video" di dalam folder "files".
-                      2. Taruh file video Anda (misal: "simulasi.mp4") di dalam folder "files/video/".
-                      3. Pastikan nama file di "src" di bawah ini SAMA. 
+                      REPLACE THIS WITH YOUR VIDEO
+                      1. Create a "video" folder inside your "files" folder.
+                      2. Put your video file (e.g., "simulation.mp4") inside "files/video/".
+                      3. Ensure the filename in "src" below is EXACTLY the same.
                     -->
                     <video 
                         class="w-full h-auto rounded-lg"
                         src="files/video/simulasi.mp4" 
                         controls 
                         preload="metadata">
-                        Browser Anda tidak mendukung tag video.
+                        Your browser does not support the video tag.
                     </video>
                 </div>
             </div>
         </section>
 
-        <!-- Bagian Downloads -->
+        <!-- Downloads Section -->
         <section id="downloads" class="scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-10">Unduh File Proyek</h2>
+            <h2 class="text-3xl font-bold text-center mb-10">Download Project Files</h2>
             <p class="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
-                Pilih kategori untuk melihat semua file yang tersedia untuk diunduh.
+                Select a category to view all available files for download.
             </p>
 
-            <!-- Grid untuk Kartu Navigasi Download -->
+            <!-- Grid for Download Navigation Cards -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-                <!-- Kartu 1: Export Unity -->
-                <a href="unity-export.html" class="block bg-white rounded-lg shadow-lg overflow-hidden card-hover p-6 text-center">
-                    <div class="icon-wrapper bg-blue-100 text-blue-600 mx-auto">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.025 10.5c0 .621-.504 1.125-1.125 1.125H4.875c-.621 0-1.125-.504-1.125-1.125V7.5m16.5 0-3.21-3.21c-.4-.4-.97-.6-1.59-.6H9.93c-.62 0-1.19.2-1.59.6L5.13 7.5m15.12 0a1.125 1.125 0 0 1-1.125 1.125H5.875a1.125 1.125 0 0 1-1.125-1.125m15.12 0c0 .621-.504 1.125-1.125 1.125H5.875c-.621 0-1.125-.504-1.125-1.125m16.5 0-3.21-3.21c-.4-.4-.97-.6-1.59-.6H9.93c-.62 0-1.19.2-1.59.6L5.13 7.5" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Export Unity</h3>
-                    <p class="text-gray-600">Lihat file .zip simulasi interaktif.</p>
-                </a>
-
-                <!-- Kartu 2: Microsoft Project -->
+                <!-- Card 1: Microsoft Project -->
                 <a href="ms-project.html" class="block bg-white rounded-lg shadow-lg overflow-hidden card-hover p-6 text-center">
                     <div class="icon-wrapper bg-green-100 text-green-600 mx-auto">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Microsoft Project</h3>
-                    <p class="text-gray-600">Lihat file jadwal .mpp.</p>
+                    <h3 class="text-xl font-semibold mb-3">MS Project</h3>
+                    <p class="text-gray-600">View schedule .mpp files.</p>
                 </a>
 
-                <!-- Kartu 3: Risk Management -->
-                <a href="risk-management.html" class="block bg-white rounded-lg shadow-lg overflow-hidden card-hover p-6 text-center">
-                    <div class="icon-wrapper bg-yellow-100 text-yellow-600 mx-auto">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Manajemen Risiko</h3>
-                    <p class="text-gray-600">Lihat dokumen analisis risiko.</p>
-                </a>
-
-                <!-- Kartu 4: Perhitungan Karbon -->
-                <a href="carbon.html" class="block bg-white rounded-lg shadow-lg overflow-hidden card-hover p-6 text-center">
-                    <div class="icon-wrapper bg-gray-100 text-gray-600 mx-auto">
+                <!-- Card 2: MS Excel -->
+                <a href="ms-excel.html" class="block bg-white rounded-lg shadow-lg overflow-hidden card-hover p-6 text-center">
+                    <div class="icon-wrapper bg-blue-100 text-blue-600 mx-auto">
                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.07a2.25 2.25 0 0 1-2.25 2.25H5.85a2.25 2.25 0 0 1-2.25-2.25v-4.07a2.25 2.25 0 0 1 2.25-2.25h12.15a2.25 2.25 0 0 1 2.25 2.25Z" />
                           <path stroke-linecap="round" stroke-linejoin="round" d="M18 14.25c.621 0 1.125-.504 1.125-1.125V7.5a2.25 2.25 0 0 0-2.25-2.25H8.25A2.25 2.25 0 0 0 6 7.5v5.625c0 .621.504 1.125 1.125 1.125H18Z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Analisis Karbon</h3>
-                    <p class="text-gray-600">Lihat data perhitungan emisi.</p>
+                    <h3 class="text-xl font-semibold mb-3">MS Excel</h3>
+                    <p class="text-gray-600">View calculation data.</p>
                 </a>
+
+                <!-- Card 3: Project Report -->
+                <a href="project-report.html" class="block bg-white rounded-lg shadow-lg overflow-hidden card-hover p-6 text-center">
+                    <div class="icon-wrapper bg-yellow-100 text-yellow-600 mx-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125V6a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Project Report</h3>
+                    <p class="text-gray-600">View project analysis documents.</p>
+                </a>
+
+                <!-- Card 4: Augmented Reality -->
+                <a href="augmented-reality.html" class="block bg-white rounded-lg shadow-lg overflow-hidden card-hover p-6 text-center">
+                    <div class="icon-wrapper bg-purple-100 text-purple-600 mx-auto">
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-2.25-1.313m-16.5 0L4.5 7.5m-4.5 0H21m-21 0v1.513A2.25 2.25 0 0 0 2.25 10.5h19.5A2.25 2.25 0 0 0 24 9.013V7.5m-21 0h21m-21 0c-1.01.02-1.83.6-2.19 1.44-.35.83-.3 1.76.12 2.49M21 7.5c1.01.02 1.83.6 2.19 1.44.35.83.3 1.76-.12 2.49m-21.36 10.99c.36.83 1.18 1.41 2.19 1.44h19.5c1.01-.02 1.83-.6 2.19-1.44.35-.83.3-1.76-.12-2.49m-21.36 0v-1.513A2.25 2.25 0 0 1 2.25 13.5h19.5A2.25 2.25 0 0 1 24 14.987v1.513M2.25 13.5v-1.513A2.25 2.25 0 0 0 0 10.5v1.513M21.75 13.5v-1.513A2.25 2.25 0 0 1 24 10.5v1.513" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Augmented Reality</h3>
+                    <p class="text-gray-600 font-medium text-purple-600">Coming Soon</p>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Authors Section -->
+        <section id="authors" class="scroll-mt-20 mt-24">
+            <h2 class="text-3xl font-bold text-center mb-12">Project Authors</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                
+                <!-- Author 1 -->
+                <div class="flex flex-col items-center text-center bg-white p-8 rounded-lg shadow-lg">
+                    <img 
+                        src="https://placehold.co/150x150/e0e0e0/7c7c7c?text=Photo+1" 
+                        alt="Author 1 Photo" 
+                        class="w-36 h-36 rounded-full mb-6 object-cover border-4 border-gray-200"
+                        onerror="this.src='https://placehold.co/150x150/e0e0e0/7c7c7c?text=Photo+1'"
+                    >
+                    <h3 class="text-2xl font-semibold text-gray-900">Author Name 1</h3>
+                    <p class="text-lg text-blue-600 font-medium">Student ID: 123456789</p>
+                </div>
+
+                <!-- Author 2 -->
+                <div class="flex flex-col items-center text-center bg-white p-8 rounded-lg shadow-lg">
+                    <img 
+                        src="https://placehold.co/150x150/e0e0e0/7c7c7c?text=Photo+2" 
+                        alt="Author 2 Photo" 
+                        class="w-36 h-36 rounded-full mb-6 object-cover border-4 border-gray-200"
+                        onerror="this.src='https://placehold.co/150x150/e0e0e0/7c7c7c?text=Photo+2'"
+                    >
+                    <h3 class="text-2xl font-semibold text-gray-900">Author Name 2</h3>
+                    <p class="text-lg text-blue-600 font-medium">Student ID: 987654321</p>
+                </div>
 
             </div>
         </section>
@@ -141,7 +174,7 @@
     <!-- Footer -->
     <footer class="bg-white mt-16 border-t border-gray-200">
         <div class="container mx-auto px-6 py-8 text-center text-gray-500">
-            &copy; 2025 Proyek Simulasi BIM. Semua Hak Cipta Dilindungi.
+            &copy; 2025 BIM Simulation Project. All Rights Reserved.
         </div>
     </footer>
 

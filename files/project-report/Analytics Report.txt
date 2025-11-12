@@ -1,0 +1,244 @@
+═══════════════════════════════════════════════════
+  ADVANCED CONSTRUCTION ANALYTICS REPORT
+  Generated: 2025-11-10 19:40:50
+═══════════════════════════════════════════════════
+
+1. PHASE ANALYSIS
+─────────────────────────────────────────────────
+
+Foundation & Piles:
+  Planned: Day 0 → 12
+  Predicted: Day 1 → 15
+  Delay Probability: 50 %
+  Criticality Score: 0.88
+  Workers Required: 5
+  Efficiency: 78 %
+
+Level 1 Columns:
+  Planned: Day 14 → 17
+  Predicted: Day 15 → 19
+  Delay Probability: 31 %
+  Criticality Score: 0.60
+  Workers Required: 6
+  Efficiency: 100 %
+
+Level 1 Beams & Slabs:
+  Planned: Day 18 → 23
+  Predicted: Day 19 → 25
+  Delay Probability: 31 %
+  Criticality Score: 0.65
+  Workers Required: 6
+  Efficiency: 95 %
+
+Level 2 Columns:
+  Planned: Day 24 → 27
+  Predicted: Day 25 → 29
+  Delay Probability: 32 %
+  Criticality Score: 0.56
+  Workers Required: 12
+  Efficiency: 97 %
+
+Level 2 Beams & Slabs:
+  Planned: Day 28 → 33
+  Predicted: Day 28 → 34
+  Delay Probability: 33 %
+  Criticality Score: 0.66
+  Workers Required: 14
+  Efficiency: 89 %
+
+Level 3 Columns:
+  Planned: Day 34 → 37
+  Predicted: Day 34 → 37
+  Delay Probability: 33 %
+  Criticality Score: 0.51
+  Workers Required: 11
+  Efficiency: 93 %
+
+Level 3 Beams & Slabs:
+  Planned: Day 38 → 43
+  Predicted: Day 38 → 44
+  Delay Probability: 34 %
+  Criticality Score: 0.66
+  Workers Required: 14
+  Efficiency: 100 %
+
+Level 4 Columns:
+  Planned: Day 44 → 47
+  Predicted: Day 45 → 48
+  Delay Probability: 35 %
+  Criticality Score: 0.46
+  Workers Required: 14
+  Efficiency: 76 %
+
+Level 4 Beams & Slabs:
+  Planned: Day 48 → 53
+  Predicted: Day 49 → 55
+  Delay Probability: 36 %
+  Criticality Score: 0.66
+  Workers Required: 11
+  Efficiency: 77 %
+
+Level 5 Columns:
+  Planned: Day 54 → 57
+  Predicted: Day 54 → 58
+  Delay Probability: 36 %
+  Criticality Score: 0.42
+  Workers Required: 14
+  Efficiency: 75 %
+
+Level 5 Beams & Slabs:
+  Planned: Day 58 → 63
+  Predicted: Day 58 → 64
+  Delay Probability: 37 %
+  Criticality Score: 0.67
+  Workers Required: 14
+  Efficiency: 97 %
+
+Level 6 Columns:
+  Planned: Day 64 → 67
+  Predicted: Day 64 → 68
+  Delay Probability: 38 %
+  Criticality Score: 0.37
+  Workers Required: 11
+  Efficiency: 95 %
+
+Level 6 Beams & Slabs:
+  Planned: Day 68 → 73
+  Predicted: Day 68 → 74
+  Delay Probability: 38 %
+  Criticality Score: 0.67
+  Workers Required: 5
+  Efficiency: 74 %
+
+Level 7 Columns:
+  Planned: Day 74 → 77
+  Predicted: Day 74 → 77
+  Delay Probability: 39 %
+  Criticality Score: 0.32
+  Workers Required: 10
+  Efficiency: 77 %
+
+Level 7 Beams & Slabs:
+  Planned: Day 78 → 83
+  Predicted: Day 79 → 85
+  Delay Probability: 40 %
+  Criticality Score: 0.67
+  Workers Required: 13
+  Efficiency: 93 %
+
+Level 8 Columns:
+  Planned: Day 84 → 87
+  Predicted: Day 85 → 89
+  Delay Probability: 40 %
+  Criticality Score: 0.28
+  Workers Required: 10
+  Efficiency: 95 %
+
+Level 8 Beams & Slabs:
+  Planned: Day 88 → 93
+  Predicted: Day 89 → 95
+  Delay Probability: 41 %
+  Criticality Score: 0.68
+  Workers Required: 11
+  Efficiency: 86 %
+
+Roof Columns:
+  Planned: Day 94 → 97
+  Predicted: Day 95 → 99
+  Delay Probability: 42 %
+  Criticality Score: 0.23
+  Workers Required: 7
+  Efficiency: 100 %
+
+Roof Beams & Slabs:
+  Planned: Day 98 → 103
+  Predicted: Day 98 → 103
+  Delay Probability: 42 %
+  Criticality Score: 0.68
+  Workers Required: 12
+  Efficiency: 100 %
+
+Level 1 Architecture:
+  Planned: Day 104 → 114
+  Predicted: Day 104 → 117
+  Delay Probability: 43 %
+  Criticality Score: 0.41
+  Workers Required: 7
+  Efficiency: 71 %
+
+Level 2 Architecture:
+  Planned: Day 115 → 125
+  Predicted: Day 117 → 128
+  Delay Probability: 44 %
+  Criticality Score: 0.41
+  Workers Required: 6
+  Efficiency: 76 %
+
+Level 3 Architecture:
+  Planned: Day 126 → 136
+  Predicted: Day 128 → 140
+  Delay Probability: 44 %
+  Criticality Score: 0.41
+  Workers Required: 7
+  Efficiency: 99 %
+
+Level 4 Architecture:
+  Planned: Day 137 → 147
+  Predicted: Day 139 → 151
+  Delay Probability: 45 %
+  Criticality Score: 0.41
+  Workers Required: 8
+  Efficiency: 85 %
+
+Level 5 Architecture:
+  Planned: Day 148 → 158
+  Predicted: Day 150 → 160
+  Delay Probability: 46 %
+  Criticality Score: 0.41
+  Workers Required: 12
+  Efficiency: 93 %
+
+Level 6 Architecture:
+  Planned: Day 159 → 169
+  Predicted: Day 161 → 171
+  Delay Probability: 47 %
+  Criticality Score: 0.42
+  Workers Required: 8
+  Efficiency: 92 %
+
+Level 7 Architecture:
+  Planned: Day 170 → 180
+  Predicted: Day 172 → 182
+  Delay Probability: 47 %
+  Criticality Score: 0.42
+  Workers Required: 5
+  Efficiency: 81 %
+
+Level 8 Architecture:
+  Planned: Day 181 → 191
+  Predicted: Day 183 → 195
+  Delay Probability: 48 %
+  Criticality Score: 0.42
+  Workers Required: 11
+  Efficiency: 87 %
+
+Roof Architecture:
+  Planned: Day 192 → 202
+  Predicted: Day 194 → 207
+  Delay Probability: 49 %
+  Criticality Score: 0.42
+  Workers Required: 5
+  Efficiency: 85 %
+
+MEP Installation:
+  Planned: Day 203 → 223
+  Predicted: Day 204 → 227
+  Delay Probability: 64 %
+  Criticality Score: 0.66
+  Workers Required: 14
+  Efficiency: 92 %
+
+
+═══════════════════════════════════════════════════
+  END OF REPORT
+═══════════════════════════════════════════════════

@@ -1,0 +1,115 @@
+Materials List - 7-floor Office,,,,,,,
+Date: 2025-10-06,,,,,,,
+,,,,,,,
+Phase,Material,Quantity,Unit,Unit Cost,Total Cost,Supplier,Status
+Foundation & Piles,Concrete (Foundation),117.08,m³,158.68,18579.53,ABC Concrete,Delivered
+Foundation & Piles,Rebar Steel,8046.08,kg,2.38,19167.32,Steel Suppliers Inc,Delivered
+Level 1 Columns,Structural Steel Cover,33.3,tons,1440.36,47958.16,Steel Suppliers Inc,InTransit
+Level 1 Columns,Concrete (Cover),58.22,m³,141.12,8216.19,ABC Concrete,Ordered
+Level 1 Beams & Slabs,Structural Steel Beams,21.34,tons,1297.61,27689.12,Steel Suppliers Inc,Ordered
+Level 1 Beams & Slabs,Concrete (Slabs),65.86,m³,164.24,10816.67,ABC Concrete,Ordered
+Level 1 Beams & Slabs,Formwork,424.44,m²,36.3,15406.67,BuildForm Co,NotOrdered
+Level 2 Columns,Structural Steel Cover,34.65,tons,1514.12,52468.87,Steel Suppliers Inc,InTransit
+Level 2 Columns,Concrete (Cover),61.14,m³,155.39,9500.98,ABC Concrete,Ordered
+Level 2 Beams & Slabs,Structural Steel Beams,15.48,tons,1414.05,21885.16,Steel Suppliers Inc,Ordered
+Level 2 Beams & Slabs,Concrete (Slabs),61.94,m³,170.96,10588.73,ABC Concrete,Ordered
+Level 2 Beams & Slabs,Formwork,477.25,m²,42.65,20354.5,BuildForm Co,NotOrdered
+Level 3 Columns,Structural Steel Cover,32.38,tons,1239.29,40129.04,Steel Suppliers Inc,NotOrdered
+Level 3 Columns,Concrete (Cover),53.35,m³,169.46,9040.16,ABC Concrete,NotOrdered
+Level 3 Beams & Slabs,Structural Steel Beams,16.88,tons,1456.46,24591.63,Steel Suppliers Inc,NotOrdered
+Level 3 Beams & Slabs,Concrete (Slabs),63.49,m³,168.28,10683.77,ABC Concrete,NotOrdered
+Level 3 Beams & Slabs,Formwork,294.12,m²,37.52,11034.18,BuildForm Co,NotOrdered
+Level 4 Columns,Structural Steel Cover,34.24,tons,1628.21,55755.7,Steel Suppliers Inc,NotOrdered
+Level 4 Columns,Concrete (Cover),53.48,m³,127.31,6807.94,ABC Concrete,NotOrdered
+Level 4 Beams & Slabs,Structural Steel Beams,27.55,tons,1385.86,38175.44,Steel Suppliers Inc,NotOrdered
+Level 4 Beams & Slabs,Concrete (Slabs),66.23,m³,150.83,9988.53,ABC Concrete,NotOrdered
+Level 4 Beams & Slabs,Formwork,250.11,m²,33.82,8459.02,BuildForm Co,NotOrdered
+Level 5 Columns,Structural Steel Cover,35.44,tons,1418.37,50260.27,Steel Suppliers Inc,NotOrdered
+Level 5 Columns,Concrete (Cover),51.92,m³,135.11,7015.29,ABC Concrete,NotOrdered
+Level 5 Beams & Slabs,Structural Steel Beams,27.75,tons,1340.71,37198.84,Steel Suppliers Inc,NotOrdered
+Level 5 Beams & Slabs,Concrete (Slabs),43.22,m³,136.19,5886.38,ABC Concrete,NotOrdered
+Level 5 Beams & Slabs,Formwork,339.52,m²,41.47,14081.5,BuildForm Co,NotOrdered
+Level 6 Columns,Structural Steel Cover,37.99,tons,1490.73,56634.82,Steel Suppliers Inc,NotOrdered
+Level 6 Columns,Concrete (Cover),56.09,m³,171.02,9592.6,ABC Concrete,NotOrdered
+Level 6 Beams & Slabs,Structural Steel Beams,25.61,tons,1222.57,31304.25,Steel Suppliers Inc,NotOrdered
+Level 6 Beams & Slabs,Concrete (Slabs),93.74,m³,167.68,15719.36,ABC Concrete,NotOrdered
+Level 6 Beams & Slabs,Formwork,229.69,m²,41.28,9481.65,BuildForm Co,NotOrdered
+Level 7 Columns,Structural Steel Cover,28.79,tons,1716.22,49405.01,Steel Suppliers Inc,NotOrdered
+Level 7 Columns,Concrete (Cover),57.98,m³,178.7,10361.83,ABC Concrete,NotOrdered
+Level 7 Beams & Slabs,Structural Steel Beams,23.73,tons,1374.14,32611.58,Steel Suppliers Inc,NotOrdered
+Level 7 Beams & Slabs,Concrete (Slabs),79.25,m³,122.32,9694.28,ABC Concrete,NotOrdered
+Level 7 Beams & Slabs,Formwork,304.1,m²,36.85,11206.33,BuildForm Co,NotOrdered
+Level 8 Columns,Structural Steel Cover,33.8,tons,1530.55,51727.75,Steel Suppliers Inc,NotOrdered
+Level 8 Columns,Concrete (Cover),53.91,m³,162.95,8784.78,ABC Concrete,NotOrdered
+Level 8 Beams & Slabs,Structural Steel Beams,28.35,tons,1286.5,36466.36,Steel Suppliers Inc,NotOrdered
+Level 8 Beams & Slabs,Concrete (Slabs),79.83,m³,169.73,13548.88,ABC Concrete,NotOrdered
+Level 8 Beams & Slabs,Formwork,280.82,m²,32.66,9172.13,BuildForm Co,NotOrdered
+Roof Columns,Structural Steel Cover,35.98,tons,1713.19,61639.21,Steel Suppliers Inc,NotOrdered
+Roof Columns,Concrete (Cover),30.11,m³,179.28,5397.63,ABC Concrete,NotOrdered
+Roof Beams & Slabs,Structural Steel Beams,29.87,tons,1166.59,34849.18,Steel Suppliers Inc,NotOrdered
+Roof Beams & Slabs,Concrete (Slabs),60.83,m³,140.4,8540.17,ABC Concrete,NotOrdered
+Roof Beams & Slabs,Formwork,313.58,m²,41.56,13030.62,BuildForm Co,NotOrdered
+Level 1 Architecture,Bricks,13003.99,units,0.5,6511.76,BuildMat Supply,NotOrdered
+Level 1 Architecture,Glass Panels,106.34,m²,115.71,12303.66,GlassTech,NotOrdered
+Level 1 Architecture,Aluminum Frames,436.57,m,69.04,30140.9,Metal Works Ltd,NotOrdered
+Level 2 Architecture,Bricks,11202.97,units,0.77,8584.45,BuildMat Supply,NotOrdered
+Level 2 Architecture,Glass Panels,203.93,m²,99.84,20359.76,GlassTech,NotOrdered
+Level 2 Architecture,Aluminum Frames,393.02,m,84.68,33280.03,Metal Works Ltd,NotOrdered
+Level 3 Architecture,Bricks,7138.86,units,0.87,6185.62,BuildMat Supply,NotOrdered
+Level 3 Architecture,Glass Panels,114.96,m²,100.27,11527.08,GlassTech,NotOrdered
+Level 3 Architecture,Aluminum Frames,225.07,m,71.8,16159.01,Metal Works Ltd,NotOrdered
+Level 4 Architecture,Bricks,5690.9,units,1.1,6246.99,BuildMat Supply,NotOrdered
+Level 4 Architecture,Glass Panels,146.02,m²,85.47,12480.42,GlassTech,NotOrdered
+Level 4 Architecture,Aluminum Frames,346.2,m,71.55,24772.06,Metal Works Ltd,NotOrdered
+Level 5 Architecture,Bricks,12163.38,units,0.98,11928.32,BuildMat Supply,NotOrdered
+Level 5 Architecture,Glass Panels,241.47,m²,107.97,26072.38,GlassTech,NotOrdered
+Level 5 Architecture,Aluminum Frames,353.43,m,74.17,26212.68,Metal Works Ltd,NotOrdered
+Level 6 Architecture,Bricks,9046.57,units,0.62,5572.27,BuildMat Supply,NotOrdered
+Level 6 Architecture,Glass Panels,272,m²,101.43,27588.36,GlassTech,NotOrdered
+Level 6 Architecture,Aluminum Frames,403.53,m,50.05,20197.72,Metal Works Ltd,NotOrdered
+Level 7 Architecture,Bricks,8249.56,units,0.89,7367.52,BuildMat Supply,NotOrdered
+Level 7 Architecture,Glass Panels,199.23,m²,112.05,22322.71,GlassTech,NotOrdered
+Level 7 Architecture,Aluminum Frames,232.34,m,73.11,16985.64,Metal Works Ltd,NotOrdered
+Level 8 Architecture,Bricks,11067.13,units,0.62,6822.07,BuildMat Supply,NotOrdered
+Level 8 Architecture,Glass Panels,100.34,m²,147.99,14849.62,GlassTech,NotOrdered
+Level 8 Architecture,Aluminum Frames,422.14,m,52.94,22349.17,Metal Works Ltd,NotOrdered
+Roof Architecture,Bricks,8611.07,units,0.67,5789.56,BuildMat Supply,NotOrdered
+Roof Architecture,Glass Panels,287.02,m²,89.79,25771.14,GlassTech,NotOrdered
+Roof Architecture,Aluminum Frames,432.77,m,46.32,20046.11,Metal Works Ltd,NotOrdered
+MEP Installation,Electrical Cables,1050.39,m,7.78,8169.05,ElectroSupply,NotOrdered
+MEP Installation,PVC Pipes,556.6,m,9.15,5094.37,PlumbPro,NotOrdered
+MEP Installation,HVAC Ducts,391.09,m,32.4,12669.7,Climate Systems,NotOrdered
+,,,,,,,
+Cost Summary by Phase,,,,,,,
+Phase,Total Material Cost,,,,,,
+Foundation & Piles,37746.85,,,,,,
+Level 1 Columns,56174.35,,,,,,
+Level 1 Beams & Slabs,53912.47,,,,,,
+Level 2 Columns,61969.84,,,,,,
+Level 2 Beams & Slabs,52828.39,,,,,,
+Level 3 Columns,49169.2,,,,,,
+Level 3 Beams & Slabs,46309.58,,,,,,
+Level 4 Columns,62563.64,,,,,,
+Level 4 Beams & Slabs,56622.99,,,,,,
+Level 5 Columns,57275.57,,,,,,
+Level 5 Beams & Slabs,57166.72,,,,,,
+Level 6 Columns,66227.42,,,,,,
+Level 6 Beams & Slabs,56505.26,,,,,,
+Level 7 Columns,59766.84,,,,,,
+Level 7 Beams & Slabs,53512.19,,,,,,
+Level 8 Columns,60512.54,,,,,,
+Level 8 Beams & Slabs,59187.37,,,,,,
+Roof Columns,67036.84,,,,,,
+Roof Beams & Slabs,56419.96,,,,,,
+Level 1 Architecture,48956.32,,,,,,
+Level 2 Architecture,62224.24,,,,,,
+Level 3 Architecture,33871.71,,,,,,
+Level 4 Architecture,43499.47,,,,,,
+Level 5 Architecture,64213.38,,,,,,
+Level 6 Architecture,53358.36,,,,,,
+Level 7 Architecture,46675.86,,,,,,
+Level 8 Architecture,44020.86,,,,,,
+Roof Architecture,51606.8,,,,,,
+MEP Installation,25933.13,,,,,,
+,,,,,,,
+Total Project Material Cost:,1545268,,,,,,
