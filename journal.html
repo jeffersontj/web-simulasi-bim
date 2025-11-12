@@ -23,11 +23,6 @@
         .mobile-menu.active {
             max-height: 500px;
         }
-        /* Style for the PDF embed viewer */
-        .pdf-embed {
-            width: 100%;
-            height: 100vh; /* Full viewport height */
-        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -70,9 +65,9 @@
 
     <!-- Main Content -->
     <main class="container mx-auto px-6 py-12">
-        <div class="max-w-5xl mx-auto">
+        <div class="max-w-4xl mx-auto">
             
-            <!-- View 1: Journal List (Visible by default) -->
+            <!-- Static Journal List -->
             <div id="journal-list-view">
                 <!-- Breadcrumb Navigation -->
                 <div class="mb-4 text-sm text-gray-500">
@@ -83,48 +78,79 @@
                 
                 <h1 class="text-4xl font-bold mb-8 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Journal Archive</h1>
                 <p class="text-lg text-gray-600 mb-10">
-                    This file list is updated automatically. Click any file to read it.
+                    Please select a journal from the list below to read.
                 </p>
 
-                <!-- Dynamic File List -->
+                <!-- Static File List -->
                 <div class="bg-white rounded-lg shadow-xl overflow-hidden border border-gray-200">
-                    <!-- Loading Placeholder -->
-                    <div id="loading" class="p-6 text-center text-gray-500">
-                        <p>Loading file list...</p>
-                    </div>
-                    <!-- File List Will be Injected Here by JavaScript -->
-                    <ul id="file-list" class="divide-y divide-gray-200">
-                        <!-- Dynamic content -->
+                    <ul class="divide-y divide-gray-200">
+                        
+                        <!-- Item 1 -->
+                        <li class="p-4 sm:p-6 flex items-center justify-between hover:bg-gray-50">
+                            <div class="flex items-center min-w-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-500 mr-4 hidden sm:block">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18c-2.305 0-4.408.867-6 2.292m0-14.25v14.25" />
+                                </svg>
+                                <div class="min-w-0">
+                                    <p class="text-lg font-medium text-red-600 truncate">Automating Construction Phase Detection (Journal 1)</p>
+                                    <p class="text-sm text-gray-500 truncate">Main publication regarding 4D simulation.</p>
+                                </div>
+                            </div>
+                            <a href="journal1.html" class="ml-4 inline-block bg-red-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-red-700 transition-colors text-sm">
+                               Read
+                            </a>
+                        </li>
+                        
+                        <!-- Item 2 -->
+                        <li class="p-4 sm:p-6 flex items-center justify-between hover:bg-gray-50">
+                            <div class="flex items-center min-w-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-500 mr-4 hidden sm:block">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18c-2.305 0-4.408.867-6 2.292m0-14.25v14.25" />
+                                </svg>
+                                <div class="min-w-0">
+                                    <p class="text-lg font-medium text-red-600 truncate">BIM and AR Integration (Journal 2)</p>
+                                    <p class="text-sm text-gray-500 truncate">Exploration of Augmented Reality integration.</p>
+                                </div>
+                            </div>
+                            <a href="journal2.html" class="ml-4 inline-block bg-red-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-red-700 transition-colors text-sm">
+                               Read
+                            </a>
+                        </li>
+
+                        <!-- Item 3 -->
+                        <li class="p-4 sm:p-6 flex items-center justify-between hover:bg-gray-50">
+                            <div class="flex items-center min-w-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-500 mr-4 hidden sm:block">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18c-2.305 0-4.408.867-6 2.292m0-14.25v14.25" />
+                                </svg>
+                                <div class="min-w-0">
+                                    <p class="text-lg font-medium text-red-600 truncate">Cost Analysis Framework (Journal 3)</p>
+                                    <p class="text-sm text-gray-500 truncate">Framework for cost analysis.</p>
+                                </div>
+                            </div>
+                            <a href="journal3.html" class="ml-4 inline-block bg-red-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-red-700 transition-colors text-sm">
+                               Read
+                            </a>
+                        </li>
+
+                        <!-- Item 4 -->
+                        <li class="p-4 sm:p-6 flex items-center justify-between hover:bg-gray-50">
+                            <div class="flex items-center min-w-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-500 mr-4 hidden sm:block">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18c-2.305 0-4.408.867-6 2.292m0-14.25v14.25" />
+                                </svg>
+                                <div class="min-w-0">
+                                    <p class="text-lg font-medium text-red-600 truncate">Future Research (Journal 4)</p>
+                                    <p class="text-sm text-gray-500 truncate">Future research directions.</p>
+                                </div>
+                            </div>
+                            <a href="journal4.html" class="ml-4 inline-block bg-red-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-red-700 transition-colors text-sm">
+                               Read
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
-
-            <!-- View 2: Embed Viewer (Hidden by default) -->
-            <div id="journal-embed-view" class="hidden">
-                <!-- Back Button -->
-                <button id="back-to-list-btn" class="mb-6 inline-flex items-center px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition shadow-sm">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-                    </svg>
-                    Back to Journal List
-                </button>
-                
-                <!-- Title -->
-                <h2 id="journal-title" class="text-3xl font-bold mb-6 text-gray-800"></h2>
-                
-                <!-- Embed -->
-                <div class="bg-white rounded-lg shadow-xl overflow-hidden border border-gray-200">
-                    <embed id="pdf-embed" src="" type="application/pdf" class="pdf-embed" />
-                </div>
-                <!-- REVISI: Tautan download di bawah ini telah dihapus/disembunyikan sesuai permintaan -->
-                <p id="pdf-fallback-container" class="text-center text-gray-600 mt-6 hidden">
-                    If the journal does not display correctly, you can 
-                    <a id="pdf-download-link" href="#" class="text-blue-600 font-medium hover:underline">
-                        open the PDF directly
-                    </a>.
-                </p>
-            </div>
-
         </div>
     </main>
 
@@ -164,151 +190,6 @@
         </div>
     </footer>
 
-    <!-- AUTOMATION SCRIPT -->
-    <script>
-        // --- Configuration ---
-        // !!! IMPORTANT: Change the values below to your GitHub username and repository name !!!
-        const USERNAME = 'jeffersontj'; // Change 'USERNAME-ANDA' to your GitHub username
-        const REPO_NAME = 'web-simulasi-bim'; // Change 'NAMA-REPO-ANDA' to your repository name (e.g., 'web-simulasi-bim')
-
-        // Path to the files folder within your GitHub repository
-        const FOLDER_PATH = 'files/journal';
-        // --------------------
-
-        // --- Get Element References ---
-        const journalListView = document.getElementById('journal-list-view');
-        const journalEmbedView = document.getElementById('journal-embed-view');
-        const pdfEmbed = document.getElementById('pdf-embed');
-        const journalTitle = document.getElementById('journal-title');
-        // REVISI: Hapus referensi ke elemen yang tidak lagi digunakan
-        // const pdfDownloadLink = document.getElementById('pdf-download-link');
-        const backBtn = document.getElementById('back-to-list-btn');
-        // const pdfFallbackContainer = document.getElementById('pdf-fallback-container'); // Ambil container
-
-        // Function to fetch and display files
-        async function fetchAndDisplayFiles() {
-            const fileListElement = document.getElementById('file-list');
-            const loadingElement = document.getElementById('loading');
-
-            try {
-                // 1. Validate configuration
-                 if (USERNAME === 'jeffersontj' || REPO_NAME === 'web-simulasi-bim') {
-                    // (Configuration is set)
-                }
-
-                // 2. Build the GitHub API URL
-                const apiUrl = `https://api.github.com/repos/${USERNAME}/${REPO_NAME}/contents/${FOLDER_PATH}`;
-
-                // 3. Fetch data from the API
-                const response = await fetch(apiUrl);
-                if (!response.ok) {
-                    throw new Error(`Failed to fetch data from GitHub API (Error ${response.status})`);
-                }
-                
-                const files = await response.json();
-
-                // 4. Hide loading
-                loadingElement.style.display = 'none';
-
-                // 5. Check if files exist
-                if (!Array.isArray(files) || files.length === 0) {
-                    fileListElement.innerHTML = '<li class="p-6 text-center text-gray-500">No files found in this folder.</li>';
-                    return;
-                }
-
-                // 6. Build the HTML list
-                let htmlContent = '';
-                files.forEach(file => {
-                    // Only show files, not folders
-                    if (file.type === 'file') {
-                        // REVISI: Hapus 'downloadUrl'. Kita hanya perlu 'file.path'
-                        // const downloadUrl = `https://github.com/${USERNAME}/${REPO_NAME}/raw/main/${file.path}`;
-
-                        // REVISI: 'onclick' sekarang mengirimkan 'file.path' (path relatif)
-                        // Ini akan menjadi (contoh) "files/journal/paper.pdf", yang diizinkan oleh <embed>
-                        htmlContent += `
-                            <li class="p-4 sm:p-6 flex items-center justify-between hover:bg-gray-50">
-                                <div class="flex items-center min-w-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-500 mr-4 hidden sm:block">
-                                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18c-2.305 0-4.408.867-6 2.292m0-14.25v14.25" />
-                                    </svg>
-                                    <div class="min-w-0">
-                                        <p class="text-lg font-medium text-red-600 truncate">${file.name}</p>
-                                    </div>
-                                </div>
-                                <a href="#" 
-                                   onclick="showEmbedView(event, '${file.path}', '${file.name}')"
-                                   class="ml-4 inline-block bg-red-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-red-700 transition-colors text-sm">
-                                   Read
-                                </a>
-                            </li>
-                        `;
-                    }
-                });
-
-                fileListElement.innerHTML = htmlContent;
-
-            } catch (error) {
-                console.error('Error:', error);
-                loadingElement.style.display = 'none';
-                fileListElement.innerHTML = `<li class="p-6 text-center text-red-500">Failed to load file list. ${error.message}</li>`;
-            }
-        }
-
-        // --- View Switching Functions ---
-
-        /**
-         * Shows the PDF embed view and hides the list
-         * @param {Event} event - The click event
-         * @param {string} fileUrl - The URL of the PDF to embed
-         * @param {string} fileName - The name of the file
-         */
-        function showEmbedView(event, fileUrl, fileName) {
-         * @param {string} fileUrl - The URL of the PDF to embed (sekarang menjadi path relatif)
-         * @param {string} fileName - The name of the file
-         */
-        function showEmbedView(event, fileUrl, fileName) {
-            if (event) event.preventDefault();
-            
-            // Set sources
-            pdfEmbed.src = fileUrl; // fileUrl sekarang adalah path relatif, e.g., "files/journal/paper.pdf"
-            journalTitle.textContent = fileName;
-            
-            // REVISI: Hapus semua logika yang terkait dengan tautan download manual
-            // pdfDownloadLink.href = fileUrl;
-
-            // Toggle views
-            journalListView.classList.add('hidden');
-            journalEmbedView.classList.remove('hidden');
-
-            // Scroll to top
-            window.scrollTo(0, 0);
-        }
-
-        /**
-         * Shows the journal list view and hides the embed view
-         */
-        function showListView() {
-            // Toggle views
-            journalEmbedView.classList.add('hidden');
-            journalListView.classList.remove('hidden');
-
-            // Clear embed src to stop loading
-            pdfEmbed.src = '';
-            journalTitle.textContent = '';
-            // REVISI: Hapus
-            // pdfDownloadLink.href = '#';
-        }
-
-        // --- Event Listeners ---
-        document.addEventListener('DOMContentLoaded', () => {
-            // Fetch files when page loads
-            fetchAndDisplayFiles();
-            // Attach click listener to the "Back" button
-            backBtn.addEventListener('click', showListView);
-        });
-
-    </script>
     <script>
         // Mobile menu toggle
         function toggleMobileMenu() {
