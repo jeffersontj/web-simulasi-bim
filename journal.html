@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download MS Project Files | BIM Simulation Project</title>
+    <title>Read the Journal | BIM Simulation Project</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
         .mobile-menu {
             max-height: 0;
             overflow: hidden;
@@ -19,11 +23,14 @@
         .mobile-menu.active {
             max-height: 500px;
         }
+        .pdf-embed {
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- Header -->
     <header class="bg-white shadow-md sticky top-0 z-50 border-b border-gray-200">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
@@ -35,7 +42,7 @@
                     <a href="index.html#home" class="text-gray-600 hover:text-blue-600 font-medium transition">Home</a>
                     <a href="index.html#about" class="text-gray-600 hover:text-blue-600 font-medium transition">About</a>
                     <a href="index.html#features" class="text-gray-600 hover:text-blue-600 font-medium transition">Features</a>
-                    <a href="journal.html" class="text-gray-600 hover:text-blue-600 font-medium transition">Journal</a>
+                    <a href="journal.html" class="text-blue-600 font-bold transition">Journal</a>
                     <a href="index.html#downloads" class="text-gray-600 hover:text-blue-600 font-medium transition">Downloads</a>
                     <a href="index.html#authors" class="text-gray-600 hover:text-blue-600 font-medium transition">Authors</a>
                 </div>
@@ -52,7 +59,7 @@
                     <a href="index.html#home" class="block py-2 text-gray-600 hover:text-blue-600">Home</a>
                     <a href="index.html#about" class="block py-2 text-gray-600 hover:text-blue-600">About</a>
                     <a href="index.html#features" class="block py-2 text-gray-600 hover:text-blue-600">Features</a>
-                    <a href="journal.html" class="block py-2 text-gray-600 hover:text-blue-600">Journal</a>
+                    <a href="journal.html" class="block py-2 text-blue-600 font-semibold">Journal</a>
                     <a href="index.html#downloads" class="block py-2 text-gray-600 hover:text-blue-600">Downloads</a>
                     <a href="index.html#authors" class="block py-2 text-gray-600 hover:text-blue-600">Authors</a>
                 </div>
@@ -62,37 +69,43 @@
 
     <!-- Main Content -->
     <main class="container mx-auto px-6 py-12">
-        <div class="max-w-4xl mx-auto">
+        <div class="max-w-5xl mx-auto">
             <!-- Breadcrumb Navigation -->
             <div class="mb-4 text-sm text-gray-500">
                 <a href="index.html" class="hover:underline">Home</a>
                 <span class="mx-2">&gt;</span>
-                <a href="index.html#downloads" class="hover:underline">Downloads</a>
-                <span class="mx-2">&gt;</span>
-                <span>Microsoft Project</span>
+                <span>Read the Journal</span>
             </div>
             
-            <h1 class="text-4xl font-bold mb-8 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Microsoft Project Files (.mpp)</h1>
+            <h1 class="text-4xl font-bold mb-8 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Read Our Published Journal</h1>
             <p class="text-lg text-gray-600 mb-10">
-                This file list is updated automatically. Click to download.
+                Here you can read our journal paper embedded directly. Please use the controls to navigate, zoom, or download.
             </p>
 
-            <!-- Dynamic File List -->
+            <!-- Embedded PDF Viewer -->
             <div class="bg-white rounded-lg shadow-xl overflow-hidden border border-gray-200">
-                <!-- Loading Placeholder -->
-                <div id="loading" class="p-6 text-center text-gray-500">
-                    <p>Loading file list...</p>
-                </div>
-                <!-- File List Will be Injected Here by JavaScript -->
-                <ul id="file-list" class="divide-y divide-gray-200">
-                    <!-- Dynamic content -->
-                </ul>
+                <!-- 
+                    HOW TO USE:
+                    1. Create a "journal" folder inside your "files" folder.
+                    2. Put your PDF file (e.g., "paper.pdf") inside "files/journal/".
+                    3. Ensure the filename in "src" below is EXACTLY the same.
+                -->
+                <embed 
+                    src="files/journal/paper.pdf" 
+                    type="application/pdf" 
+                    class="pdf-embed"
+                />
             </div>
+            <p class="text-center text-gray-600 mt-6">
+                If the journal does not display correctly, you can 
+                <a href="files/journal/paper.pdf" class="text-blue-600 font-medium hover:underline" download>
+                    download the PDF directly
+                </a>.
+            </p>
 
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-gray-900 text-white mt-20">
         <div class="container mx-auto px-6 py-12">
             <div class="grid md:grid-cols-3 gap-8 mb-8">
@@ -129,85 +142,6 @@
         </div>
     </footer>
 
-    <!-- AUTOMATION SCRIPT -->
-    <script>
-        // --- Configuration ---
-        // !!! IMPORTANT: Change the values below to your GitHub username and repository name !!!
-        const USERNAME = 'jeffersontj'; // Change 'USERNAME-ANDA' to your GitHub username
-        const REPO_NAME = 'web-simulasi-bim'; // Change 'NAMA-REPO-ANDA' to your repository name (e.g., 'web-simulasi-bim')
-        
-        // Path to the files folder within your GitHub repository
-        const FOLDER_PATH = 'files/ms-project';
-        // --------------------
-
-        // Function to fetch and display files
-        async function fetchAndDisplayFiles() {
-            const fileListElement = document.getElementById('file-list');
-            const loadingElement = document.getElementById('loading');
-
-            try {
-                // 1. Validate configuration
-                if (USERNAME === 'USERNAME-ANDA' || REPO_NAME === 'NAMA-REPO-ANDA') {
-                    throw new Error('Please edit this HTML file and set the USERNAME and REPO_NAME variables inside the <script> tag.');
-                }
-
-                // 2. Build the GitHub API URL
-                const apiUrl = `https://api.github.com/repos/${USERNAME}/${REPO_NAME}/contents/${FOLDER_PATH}`;
-
-                // 3. Fetch data from the API
-                const response = await fetch(apiUrl);
-                if (!response.ok) {
-                    throw new Error(`Failed to fetch data from GitHub API (Error ${response.status})`);
-                }
-                
-                const files = await response.json();
-
-                // 4. Hide loading
-                loadingElement.style.display = 'none';
-
-                // 5. Check if files exist
-                if (!Array.isArray(files) || files.length === 0) {
-                    fileListElement.innerHTML = '<li class="p-6 text-center text-gray-500">No files found in this folder.</li>';
-                    return;
-                }
-
-                // 6. Build the HTML list
-                let htmlContent = '';
-                files.forEach(file => {
-                    // Only show files, not folders
-                    if (file.type === 'file') {
-                        htmlContent += `
-                            <li class="p-4 sm:p-6 flex items-center justify-between hover:bg-gray-50">
-                                <div class="flex items-center min-w-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-blue-500 mr-4 hidden sm:block">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
-                                    </svg>
-                                    <div class="min-w-0">
-                                        <p class="text-lg font-medium text-blue-600 truncate">${file.name}</p>
-                                    </div>
-                                </div>
-                                <a href="${file.download_url}" 
-                                   class="ml-4 inline-block bg-blue-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors text-sm"
-                                   download>
-                                   Download
-                                </a>
-                            </li>
-                        `;
-                    }
-                });
-
-                fileListElement.innerHTML = htmlContent;
-
-            } catch (error) {
-                console.error('Error:', error);
-                loadingElement.style.display = 'none';
-                fileListElement.innerHTML = `<li class="p-6 text-center text-red-500">Failed to load file list. ${error.message}</li>`;
-            }
-        }
-
-        // Run the function when the page loads
-        document.addEventListener('DOMContentLoaded', fetchAndDisplayFiles);
-    </script>
     <script>
         function toggleMobileMenu() {
             const menu = document.getElementById('mobileMenu');
@@ -220,5 +154,6 @@
             });
         });
     </script>
+
 </body>
 </html>

@@ -123,6 +123,7 @@
                     <a href="#home" class="text-gray-600 hover:text-blue-600 font-medium transition">Home</a>
                     <a href="#about" class="text-gray-600 hover:text-blue-600 font-medium transition">About</a>
                     <a href="#features" class="text-gray-600 hover:text-blue-600 font-medium transition">Features</a>
+                    <a href="journal.html" class="text-gray-600 hover:text-blue-600 font-medium transition">Journal</a>
                     <a href="#downloads" class="text-gray-600 hover:text-blue-600 font-medium transition">Downloads</a>
                     <a href="#authors" class="text-gray-600 hover:text-blue-600 font-medium transition">Authors</a>
                 </div>
@@ -139,6 +140,7 @@
                     <a href="#home" class="block py-2 text-gray-600 hover:text-blue-600">Home</a>
                     <a href="#about" class="block py-2 text-gray-600 hover:text-blue-600">About</a>
                     <a href="#features" class="block py-2 text-gray-600 hover:text-blue-600">Features</a>
+                    <a href="journal.html" class="block py-2 text-gray-600 hover:text-blue-600">Journal</a>
                     <a href="#downloads" class="block py-2 text-gray-600 hover:text-blue-600">Downloads</a>
                     <a href="#authors" class="block py-2 text-gray-600 hover:text-blue-600">Authors</a>
                 </div>
@@ -149,7 +151,7 @@
     <section id="home" class="hero-gradient text-white py-20 md:py-32 scroll-mt-20">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto text-center fade-in">
-                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6">
                     BIM Simulation Project
                 </h1>
                 <p class="text-xl md:text-2xl mb-8 text-white/90 font-light">
@@ -337,34 +339,83 @@
                 Access all project documentation, schedules, calculations, and reports. Click on any category to explore available files.
             </p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            <!-- 
+                NEW DOWNLOADS SECTION: 
+                Replaced the 2-card layout with the 5-card layout (3 + 1 Coming Soon + 1 Journal)
+                to match the previous build's categories, styled with the new aesthetic.
+            -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
 
+                <!-- Card 1: MS Project -->
                 <a href="ms-project.html" class="block bg-white rounded-2xl shadow-lg overflow-hidden card-hover p-8 text-center border border-gray-100 relative">
+                    <div class="icon-wrapper bg-blue-100 text-blue-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900">MS Project</h3>
+                    <p class="text-gray-600 mb-4">View schedule .mpp files and timelines.</p>
+                    <div class="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">
+                        Available
+                    </div>
+                </a>
+
+                <!-- Card 2: MS Excel -->
+                <a href="ms-excel.html" class="block bg-white rounded-2xl shadow-lg overflow-hidden card-hover p-8 text-center border border-gray-100 relative">
                     <div class="icon-wrapper bg-green-100 text-green-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V13.5Zm0 2.25h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V18Zm2.498-6.75h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V13.5Zm0 2.25h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V18Zm2.504-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5ZM8.25 6h7.5v2.25h-7.5V6ZM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 0 0 2.25 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0 0 12 2.25Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900">MS Excel</h3>
+                    <p class="text-gray-600 mb-4">View calculation data and spreadsheets.</p>
+                    <div class="inline-block bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-semibold">
+                        Available
+                    </div>
+                </a>
+
+                <!-- Card 3: Project Report -->
+                <a href="project-report.html" class="block bg-white rounded-2xl shadow-lg overflow-hidden card-hover p-8 text-center border border-gray-100 relative">
+                    <div class="icon-wrapper bg-yellow-100 text-yellow-600">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
                         </svg>
                     </div>
                     <h3 class="text-2xl font-bold mb-3 text-gray-900">Project Report</h3>
-                    <p class="text-gray-600 mb-4">Comprehensive analysis, methodology, and findings documentation</p>
+                    <p class="text-gray-600 mb-4">View project analysis documents.</p>
                     <div class="inline-block bg-yellow-100 text-yellow-700 px-4 py-2 rounded-full text-sm font-semibold">
                         Available
                     </div>
                 </a>
 
-                <div class="block bg-white rounded-2xl shadow-lg overflow-hidden card-hover p-8 text-center border border-gray-100 relative">
+                <!-- Card 4: Augmented Reality -->
+                <a href="augmented-reality.html" class="block bg-white rounded-2xl shadow-lg overflow-hidden card-hover p-8 text-center border border-gray-100 relative">
                     <span class="coming-soon-badge">Coming Soon</span>
                     <div class="icon-wrapper bg-purple-100 text-purple-600">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-2.25-1.313m-16.5 0L4.5 7.5m-4.5 0H21m-21 0v1.513A2.25 2.25 0 0 0 2.25 10.5h19.5A2.25 2.25 0 0 0 24 9.013V7.5m-21 0h21m-21 0c-1.01.02-1.83.6-2.19 1.44-.35.83-.3 1.76.12 2.49M21 7.5c1.01.02 1.83.6 2.19 1.44.35.83.3 1.76-.12 2.49m-21.36 10.99c.36.83 1.18 1.41 2.19 1.44h19.5c1.01-.02 1.83-.6 2.19-1.44.35-.83.3-1.76-.12-2.49m-21.36 0v-1.513A2.25 2.25 0 0 1 2.25 13.5h19.5A2.25 2.25 0 0 1 24 14.987v1.513M2.25 13.5v-1.513A2.25 2.25 0 0 0 0 10.5v1.513M21.75 13.5v-1.513A2.25 2.25 0 0 1 24 10.5v1.513" />
                         </svg>
                     </div>
                     <h3 class="text-2xl font-bold mb-3 text-gray-900">Augmented Reality</h3>
-                    <p class="text-gray-600 mb-4">Immersive AR visualization for on-site project guidance</p>
+                    <p class="text-gray-600 mb-4">Immersive AR visualization for on-site guidance.</p>
                     <div class="inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold">
                         In Development
                     </div>
-                </div>
+                </a>
+
+                <!-- Card 5: Read Journal -->
+                <a href="journal.html" class="block bg-white rounded-2xl shadow-lg overflow-hidden card-hover p-8 text-center border border-gray-100 relative md:col-span-2 lg:col-span-1">
+                    <div class="icon-wrapper bg-red-100 text-red-600">
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18c-2.305 0-4.408.867-6 2.292m0-14.25v14.25" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Read Our Journal</h3>
+                    <p class="text-gray-600 mb-4">Read our published paper live on the web.</p>
+                    <div class="inline-block bg-red-100 text-red-700 px-4 py-2 rounded-full text-sm font-semibold">
+                        Read Now
+                    </div>
+                </a>
 
             </div>
         </div>
@@ -379,7 +430,7 @@
                 Tools and software used in this project
             </p>
             
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-6xl mx-auto">
                 <div class="bg-gray-50 rounded-xl p-6 text-center hover:shadow-lg transition transform hover:scale-105">
                     <div class="text-4xl mb-3">📊</div>
                     <div class="font-semibold text-gray-800">MS Project</div>
@@ -396,6 +447,10 @@
                     <div class="text-4xl mb-3">🎥</div>
                     <div class="font-semibold text-gray-800">OBS Studio</div>
                 </div>
+                <div class="bg-gray-50 rounded-xl p-6 text-center hover:shadow-lg transition transform hover:scale-105">
+                    <div class="text-4xl mb-3">📦</div>
+                    <div class="font-semibold text-gray-800">GitHub</div>
+                </div>
             </div>
         </div>
     </section>
@@ -411,7 +466,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
                 
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover">
+                <a href="https://www.linkedin.com/in/steven-gaillard-301739218/" target="_blank" rel="noopener noreferrer" class="block bg-white rounded-2xl shadow-xl overflow-hidden card-hover">
                     <div class="h-32 bg-gradient-to-r from-blue-600 to-purple-600"></div>
                     <div class="p-8 text-center relative">
                         <img 
@@ -433,9 +488,9 @@
                             <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Structural Analysis</span>
                         </div>
                     </div>
-                </div>
+                </a>
 
-                <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover">
+                <a href="https://www.linkedin.com/in/cornelius-jefferson-tjahjono/" target="_blank" rel="noopener noreferrer" class="block bg-white rounded-2xl shadow-xl overflow-hidden card-hover">
                     <div class="h-32 bg-gradient-to-r from-purple-600 to-pink-600"></div>
                     <div class="p-8 text-center relative">
                         <img 
@@ -457,7 +512,7 @@
                             <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Data Analysis</span>
                         </div>
                     </div>
-                </div>
+                </a>
 
             </div>
         </div>
@@ -492,6 +547,7 @@
                         <li><a href="#home" class="text-gray-400 hover:text-white transition">Home</a></li>
                         <li><a href="#about" class="text-gray-400 hover:text-white transition">About</a></li>
                         <li><a href="#features" class="text-gray-400 hover:text-white transition">Features</a></li>
+                        <li><a href="journal.html" class="text-gray-400 hover:text-white transition">Journal</a></li>
                         <li><a href="#downloads" class="text-gray-400 hover:text-white transition">Downloads</a></li>
                         <li><a href="#authors" class="text-gray-400 hover:text-white transition">Authors</a></li>
                     </ul>
@@ -500,7 +556,7 @@
                     <h4 class="text-lg font-semibold mb-4">Project Info</h4>
                     <ul class="space-y-2 text-gray-400">
                         <li>📍 National Taiwan University of Science and Technology</li>
-                        <li>📅 Academic Year 2024-2025</li>
+                        <li>📅 Academic Year 2025-2026</li>
                         <li>🏗️ Civil and Construction Engineering</li>
                     </ul>
                 </div>
@@ -541,4 +597,4 @@
     </script>
 
 </body>
-</html>">
+</html>
