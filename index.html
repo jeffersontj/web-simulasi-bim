@@ -3,180 +3,542 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIM Simulation Project</title>
-    <!-- Load Tailwind CSS -->
+    <title>BIM Simulation Project | Advanced Construction Management</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Load Inter Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Icon for Download (Heroicons) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
         }
-        /* Smoother hover effect */
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #4facfe);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
         .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        
         .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-        /* Icon styling */
+        
         .icon-wrapper {
-            width: 3rem; /* 48px */
-            height: 3rem; /* 48px */
+            width: 4rem;
+            height: 4rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 0.5rem; /* rounded-lg */
-            margin-bottom: 1rem; /* mb-4 */
+            border-radius: 1rem;
+            margin: 0 auto 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .card-hover:hover .icon-wrapper {
+            transform: rotate(5deg) scale(1.1);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .stat-number {
+            animation: countUp 0.6s ease-out;
+        }
+        
+        .video-glow {
+            box-shadow: 0 0 60px rgba(102, 126, 234, 0.3);
+        }
+        
+        .coming-soon-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .mobile-menu.active {
+            max-height: 500px;
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-50 text-gray-800">
 
-    <!-- Header -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-blue-600">BIM Project</a>
-            <div class="space-x-4">
-                <a href="index.html#home" class="text-gray-600 hover:text-blue-600">Home</a>
-                <a href="index.html#downloads" class="text-gray-600 hover:text-blue-600">Downloads</a>
-                <a href="index.html#authors" class="text-gray-600 hover:text-blue-600">Authors</a>
+    <header class="bg-white shadow-md sticky top-0 z-50 border-b border-gray-200">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                    BIM Simulation
+                </a>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-600 hover:text-blue-600 font-medium transition">Home</a>
+                    <a href="#about" class="text-gray-600 hover:text-blue-600 font-medium transition">About</a>
+                    <a href="#features" class="text-gray-600 hover:text-blue-600 font-medium transition">Features</a>
+                    <a href="#downloads" class="text-gray-600 hover:text-blue-600 font-medium transition">Downloads</a>
+                    <a href="#authors" class="text-gray-600 hover:text-blue-600 font-medium transition">Authors</a>
+                </div>
+                
+                <button class="md:hidden" onclick="toggleMobileMenu()">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="mobile-menu md:hidden" id="mobileMenu">
+                <div class="pt-4 pb-2 space-y-2">
+                    <a href="#home" class="block py-2 text-gray-600 hover:text-blue-600">Home</a>
+                    <a href="#about" class="block py-2 text-gray-600 hover:text-blue-600">About</a>
+                    <a href="#features" class="block py-2 text-gray-600 hover:text-blue-600">Features</a>
+                    <a href="#downloads" class="block py-2 text-gray-600 hover:text-blue-600">Downloads</a>
+                    <a href="#authors" class="block py-2 text-gray-600 hover:text-blue-600">Authors</a>
+                </div>
             </div>
         </nav>
     </header>
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-6 py-12">
+    <section id="home" class="hero-gradient text-white py-20 md:py-32 scroll-mt-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center fade-in">
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+                    BIM Simulation Project
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-white/90 font-light">
+                    Advanced Building Information Modeling for Modern Construction Management
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#downloads" class="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:shadow-2xl transition transform hover:scale-105">
+                        Download Files
+                    </a>
+                    <a href="#about" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- Home Section - Simulation Video -->
-        <section id="home" class="mb-16 scroll-mt-20">
-            <h1 class="text-4xl font-bold text-center mb-8">BIM Project Simulation</h1>
-            <p class="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
-                Welcome to our project page. Below is a BIM simulation video demonstrating our project's workflow and visualization.
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="stat-number">
+                    <div class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">100+</div>
+                    <div class="text-gray-600 font-medium">Working Hours</div>
+                </div>
+                <div class="stat-number">
+                    <div class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">4</div>
+                    <div class="text-gray-600 font-medium">File Categories</div>
+                </div>
+                <div class="stat-number">
+                    <div class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">2</div>
+                    <div class="text-gray-600 font-medium">Team Members</div>
+                </div>
+                <div class="stat-number">
+                    <div class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">1</div>
+                    <div class="text-gray-600 font-medium">Simulation Video</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 scroll-mt-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                    About This Project
+                </h2>
+                <p class="text-xl text-center text-gray-600 mb-12 leading-relaxed">
+                    A comprehensive BIM simulation demonstrating advanced construction management workflows
+                </p>
+                
+                <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        This Building Information Modeling (BIM) project showcases an integrated approach to modern construction management. Our simulation demonstrates how digital tools and methodologies can streamline project workflows, improve collaboration, and enhance decision-making throughout the construction lifecycle.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        The project integrates multiple aspects of construction management including scheduling with Microsoft Project, detailed calculations in Excel, comprehensive project reporting, and future augmented reality visualization capabilities.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Our goal is to demonstrate best practices in BIM implementation and provide a practical framework for construction professionals seeking to adopt digital transformation strategies in their projects.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-20 scroll-mt-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Key Features
+            </h2>
+            <p class="text-xl text-center text-gray-600 mb-16">
+                What makes our BIM simulation unique
+            </p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 border border-blue-100">
+                    <div class="w-16 h-16 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-white">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Advanced Scheduling</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Detailed project timelines and resource allocation using Microsoft Project for optimal construction planning.
+                    </p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-100">
+                    <div class="w-16 h-16 bg-green-600 rounded-xl flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-white">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V13.5Zm0 2.25h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V18Zm2.498-6.75h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V13.5Zm0 2.25h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V18Zm2.504-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5ZM8.25 6h7.5v2.25h-7.5V6ZM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 0 0 2.25 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0 0 12 2.25Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Precise Calculations</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Comprehensive Excel spreadsheets with detailed cost estimations, material quantities, and financial analysis.
+                    </p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl p-8 border border-yellow-100">
+                    <div class="w-16 h-16 bg-yellow-600 rounded-xl flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-white">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Complete Documentation</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Thorough project reports with analysis, methodology, and findings for comprehensive understanding.
+                    </p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 border border-purple-100">
+                    <div class="w-16 h-16 bg-purple-600 rounded-xl flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-white">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Visual Simulation</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        High-quality video demonstration of the entire construction workflow and BIM implementation process.
+                    </p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-red-50 to-rose-50 rounded-2xl p-8 border border-red-100">
+                    <div class="w-16 h-16 bg-red-600 rounded-xl flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-white">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Data Analytics</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Advanced analytics and insights derived from project data to support decision-making processes.
+                    </p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-8 border border-indigo-100">
+                    <div class="w-16 h-16 bg-indigo-600 rounded-xl flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-white">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Future AR Integration</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Planned augmented reality features for immersive project visualization and on-site guidance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 scroll-mt-20 bg-gradient-to-br from-gray-900 to-blue-900 text-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-6">
+                Watch Our BIM Simulation
+            </h2>
+            <p class="text-xl text-center text-white/80 mb-12 max-w-3xl mx-auto">
+                Experience our comprehensive BIM workflow demonstration showcasing project planning, execution, and management
             </p>
 
-            <!-- Video Player -->
-            <div class="bg-gray-900 rounded-lg shadow-xl overflow-hidden max-w-4xl mx-auto">
-                <div class="aspect-w-16 aspect-h-9">
-                    <!-- 
-                      REPLACE THIS WITH YOUR VIDEO
-                      1. Create a "video" folder inside your "files" folder.
-                      2. Put your video file (e.g., "simulation.mp4") inside "files/video/".
-                      3. Ensure the filename in "src" below is EXACTLY the same.
-                    -->
+            <div class="max-w-5xl mx-auto">
+                <div class="bg-black rounded-3xl overflow-hidden shadow-2xl video-glow">
                     <video 
-                        class="w-full h-auto rounded-lg"
+                        class="w-full h-auto"
                         src="files/video/simulasi.mp4" 
                         controls 
-                        preload="metadata">
+                        preload="metadata"
+                        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect fill='%23667eea' width='1920' height='1080'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-size='72' fill='white'%3EBIM Simulation%3C/text%3E%3C/svg%3E">
                         Your browser does not support the video tag.
                     </video>
                 </div>
+                
+                <div class="mt-8 text-center">
+                    <p class="text-white/80 mb-4">Duration: Full project walkthrough | Quality: HD</p>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Downloads Section -->
-        <section id="downloads" class="scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-10">Download Project Files</h2>
-            <p class="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
-                Select a category to view all available files for download.
+    <section id="downloads" class="py-20 scroll-mt-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Download Project Files
+            </h2>
+            <p class="text-xl text-center text-gray-600 mb-16 max-w-3xl mx-auto">
+                Access all project documentation, schedules, calculations, and reports. Click on any category to explore available files.
             </p>
 
-            <!-- Grid for Download Navigation Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
 
-                <!-- Card 1: Microsoft Project -->
-                <a href="ms-project.html" class="block bg-white rounded-lg shadow-lg overflow-hidden card-hover p-6 text-center">
-                    <div class="icon-wrapper bg-green-100 text-green-600 mx-auto">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                <a href="ms-project.html" class="block bg-white rounded-2xl shadow-lg overflow-hidden card-hover p-8 text-center border border-gray-100 relative">
+                    <div class="icon-wrapper bg-green-100 text-green-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">MS Project</h3>
-                    <p class="text-gray-600">View schedule .mpp files.</p>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Project Report</h3>
+                    <p class="text-gray-600 mb-4">Comprehensive analysis, methodology, and findings documentation</p>
+                    <div class="inline-block bg-yellow-100 text-yellow-700 px-4 py-2 rounded-full text-sm font-semibold">
+                        Available
+                    </div>
                 </a>
 
-                <!-- Card 2: MS Excel -->
-                <a href="ms-excel.html" class="block bg-white rounded-lg shadow-lg overflow-hidden card-hover p-6 text-center">
-                    <div class="icon-wrapper bg-blue-100 text-blue-600 mx-auto">
-                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.07a2.25 2.25 0 0 1-2.25 2.25H5.85a2.25 2.25 0 0 1-2.25-2.25v-4.07a2.25 2.25 0 0 1 2.25-2.25h12.15a2.25 2.25 0 0 1 2.25 2.25Z" />
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M18 14.25c.621 0 1.125-.504 1.125-1.125V7.5a2.25 2.25 0 0 0-2.25-2.25H8.25A2.25 2.25 0 0 0 6 7.5v5.625c0 .621.504 1.125 1.125 1.125H18Z" />
+                <div class="block bg-white rounded-2xl shadow-lg overflow-hidden card-hover p-8 text-center border border-gray-100 relative">
+                    <span class="coming-soon-badge">Coming Soon</span>
+                    <div class="icon-wrapper bg-purple-100 text-purple-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">MS Excel</h3>
-                    <p class="text-gray-600">View calculation data.</p>
-                </a>
-
-                <!-- Card 3: Project Report -->
-                <a href="project-report.html" class="block bg-white rounded-lg shadow-lg overflow-hidden card-hover p-6 text-center">
-                    <div class="icon-wrapper bg-yellow-100 text-yellow-600 mx-auto">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125V6a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
-                        </svg>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Augmented Reality</h3>
+                    <p class="text-gray-600 mb-4">Immersive AR visualization for on-site project guidance</p>
+                    <div class="inline-block bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold">
+                        In Development
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Project Report</h3>
-                    <p class="text-gray-600">View project analysis documents.</p>
-                </a>
-
-                <!-- Card 4: Augmented Reality -->
-                <a href="augmented-reality.html" class="block bg-white rounded-lg shadow-lg overflow-hidden card-hover p-6 text-center">
-                    <div class="icon-wrapper bg-purple-100 text-purple-600 mx-auto">
-                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-2.25-1.313m-16.5 0L4.5 7.5m-4.5 0H21m-21 0v1.513A2.25 2.25 0 0 0 2.25 10.5h19.5A2.25 2.25 0 0 0 24 9.013V7.5m-21 0h21m-21 0c-1.01.02-1.83.6-2.19 1.44-.35.83-.3 1.76.12 2.49M21 7.5c1.01.02 1.83.6 2.19 1.44.35.83.3 1.76-.12 2.49m-21.36 10.99c.36.83 1.18 1.41 2.19 1.44h19.5c1.01-.02 1.83-.6 2.19-1.44.35-.83.3-1.76-.12-2.49m-21.36 0v-1.513A2.25 2.25 0 0 1 2.25 13.5h19.5A2.25 2.25 0 0 1 24 14.987v1.513M2.25 13.5v-1.513A2.25 2.25 0 0 0 0 10.5v1.513M21.75 13.5v-1.513A2.25 2.25 0 0 1 24 10.5v1.513" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">Augmented Reality</h3>
-                    <p class="text-gray-600 font-medium text-purple-600">Coming Soon</p>
-                </a>
+                </div>
 
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Authors Section -->
-        <section id="authors" class="scroll-mt-20 mt-24">
-            <h2 class="text-3xl font-bold text-center mb-12">Project Authors</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Technology Stack
+            </h2>
+            <p class="text-xl text-center text-gray-600 mb-16">
+                Tools and software used in this project
+            </p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+                <div class="bg-gray-50 rounded-xl p-6 text-center hover:shadow-lg transition transform hover:scale-105">
+                    <div class="text-4xl mb-3">📊</div>
+                    <div class="font-semibold text-gray-800">MS Project</div>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-6 text-center hover:shadow-lg transition transform hover:scale-105">
+                    <div class="text-4xl mb-3">📈</div>
+                    <div class="font-semibold text-gray-800">MS Excel</div>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-6 text-center hover:shadow-lg transition transform hover:scale-105">
+                    <div class="text-4xl mb-3">🏗️</div>
+                    <div class="font-semibold text-gray-800">Revit & Unity</div>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-6 text-center hover:shadow-lg transition transform hover:scale-105">
+                    <div class="text-4xl mb-3">🎥</div>
+                    <div class="font-semibold text-gray-800">OBS Studio</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="authors" class="py-20 scroll-mt-20 bg-gradient-to-br from-blue-50 to-purple-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Project Authors
+            </h2>
+            <p class="text-xl text-center text-gray-600 mb-16">
+                Meet the team behind this BIM simulation project
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
                 
-                <!-- Author 1 -->
-                <div class="flex flex-col items-center text-center bg-white p-8 rounded-lg shadow-lg">
-                    <img 
-                        src="https://media.licdn.com/dms/image/v2/D4D03AQF82Fjpl4RppA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1728022104979?e=1764806400&v=beta&t=ytrYl2BkZzFLALKucUDS2DBM7nSajGGAtilTT6OVkDM" 
-                        alt="Author 1 Photo" 
-                        class="w-36 h-36 rounded-full mb-6 object-cover border-4 border-gray-200"
-                        onerror="this.src='https://placehold.co/150x150/e0e0e0/7c7c7c?text=Photo+1'"
-                    >
-                    <h3 class="text-2xl font-semibold text-gray-900">Steven Gaillard</h3>
-                    <p class="text-lg text-blue-600 font-medium">Student ID: D11405806</p>
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover">
+                    <div class="h-32 bg-gradient-to-r from-blue-600 to-purple-600"></div>
+                    <div class="p-8 text-center relative">
+                        <img 
+                            src="https://media.licdn.com/dms/image/v2/D4D03AQF82Fjpl4RppA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1728022104979?e=1764806400&v=beta&t=ytrYl2BkZzFLALKucUDS2DBM7nSajGGAtilTT6OVkDM" 
+                            alt="Steven Gaillard" 
+                            class="w-40 h-40 rounded-full mx-auto -mt-24 mb-6 object-cover border-8 border-white shadow-xl"
+                            onerror="this.src='https://ui-avatars.com/api/?name=Steven+Gaillard&size=160&background=667eea&color=fff&font-size=0.4'"
+                        >
+                        <h3 class="text-3xl font-bold text-gray-900 mb-2">Steven Gaillard</h3>
+                        <p class="text-lg text-blue-600 font-semibold mb-4">Student ID: D11405806</p>
+                        <div class="bg-gray-50 rounded-xl p-4 mb-4">
+                            <p class="text-gray-700 font-medium mb-2">Doctoral's Student</p>
+                            <p class="text-gray-600 text-sm">Civil and Construction Engineering</p>
+                            <p class="text-gray-600 text-sm">National Taiwan University of Science and Technology</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">BIM Specialist</span>
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">Project Management</span>
+                            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Structural Analysis</span>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Author 2 -->
-                <div class="flex flex-col items-center text-center bg-white p-8 rounded-lg shadow-lg">
-                    <img 
-                        src="https://media.licdn.com/dms/image/v2/D5603AQH1SidOpt3vuQ/profile-displayphoto-scale_400_400/B56ZgOoSjyG4As-/0/1752592102890?e=1764806400&v=beta&t=Nc8k0TO5DDNsTIfPVcHQvZwlVaHarMh7W-vEo2RqAnM" 
-                        alt="Author 2 Photo" 
-                        class="w-36 h-36 rounded-full mb-6 object-cover border-4 border-gray-200"
-                        onerror="this.src='https://placehold.co/150x150/e0e0e0/7c7c7c?text=Photo+2'"
-                    >
-                    <h3 class="text-2xl font-semibold text-gray-900">Cornelius Jefferson Tjahjono</h3>
-                    <p class="text-lg text-blue-600 font-medium">Student ID: M11405806</p>
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover">
+                    <div class="h-32 bg-gradient-to-r from-purple-600 to-pink-600"></div>
+                    <div class="p-8 text-center relative">
+                        <img 
+                            src="https://media.licdn.com/dms/image/v2/D5603AQH1SidOpt3vuQ/profile-displayphoto-scale_400_400/B56ZgOoSjyG4As-/0/1752592102890?e=1764806400&v=beta&t=Nc8k0TO5DDNsTIfPVcHQvZwlVaHarMh7W-vEo2RqAnM" 
+                            alt="Cornelius Jefferson Tjahjono" 
+                            class="w-40 h-40 rounded-full mx-auto -mt-24 mb-6 object-cover border-8 border-white shadow-xl"
+                            onerror="this.src='https://ui-avatars.com/api/?name=Cornelius+Jefferson&size=160&background=764ba2&color=fff&font-size=0.4'"
+                        >
+                        <h3 class="text-3xl font-bold text-gray-900 mb-2">Cornelius Jefferson Tjahjono</h3>
+                        <p class="text-lg text-purple-600 font-semibold mb-4">Student ID: M11405806</p>
+                        <div class="bg-gray-50 rounded-xl p-4 mb-4">
+                            <p class="text-gray-700 font-medium mb-2">Master's Student</p>
+                            <p class="text-gray-600 text-sm">Civil and Construction Engineering</p>
+                            <p class="text-gray-600 text-sm">National Taiwan University of Science and Technology</p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">BIM Developer</span>
+                            <span class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-sm">Simulation</span>
+                            <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Data Analysis</span>
+                        </div>
+                    </div>
                 </div>
 
             </div>
-        </section>
+        </div>
+    </section>
 
-    </main>
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                Ready to Explore?
+            </h2>
+            <p class="text-xl mb-10 max-w-2xl mx-auto text-white/90">
+                Download our project files and dive deep into the comprehensive BIM simulation workflow
+            </p>
+            <a href="#downloads" class="inline-block bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition transform hover:scale-105">
+                Access Downloads
+            </a>
+        </div>
+    </section>
 
-    <!-- Footer -->
-    <footer class="bg-white mt-16 border-t border-gray-200">
-        <div class="container mx-auto px-6 py-8 text-center text-gray-500">
-            &copy; 2025 BIM Simulation Project. All Rights Reserved.
+    <footer class="bg-gray-900 text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">BIM Simulation</h3>
+                    <p class="text-gray-400">
+                        Advanced Building Information Modeling for modern construction management
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">About</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition">Features</a></li>
+                        <li><a href="#downloads" class="text-gray-400 hover:text-white transition">Downloads</a></li>
+                        <li><a href="#authors" class="text-gray-400 hover:text-white transition">Authors</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Project Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>📍 National Taiwan University of Science and Technology</li>
+                        <li>📅 Academic Year 2024-2025</li>
+                        <li>🏗️ Civil and Construction Engineering</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 BIM Simulation Project. All Rights Reserved.</p>
+                <p class="mt-2 text-sm">Developed by Steven Gaillard & Cornelius Jefferson Tjahjono</p>
+            </div>
         </div>
     </footer>
 
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+        
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.remove('active');
+            });
+        });
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
 </body>
-</html>
+</html>">
