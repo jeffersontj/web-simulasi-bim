@@ -77,6 +77,24 @@
                 This file list is updated automatically. Click to download.
             </p>
 
+            <!-- NEW: Toolbar -->
+            <div class="mb-6 flex flex-col md:flex-row gap-4">
+                <!-- Search Bar -->
+                <div class="relative flex-grow">
+                    <input type="text" id="search-bar" placeholder="Search files..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <svg class="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                </div>
+                
+                <!-- Sort Dropdown -->
+                <select id="sort-filter" class="border border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="name-asc">Sort by Name (A-Z)</option>
+                    <option value="name-desc">Sort by Name (Z-A)</option>
+                </select>
+            </div>
+            <!-- END NEW: Toolbar -->
+
             <!-- Dynamic File List -->
             <div class="bg-white rounded-lg shadow-xl overflow-hidden border border-gray-200">
                 <!-- Loading Placeholder -->
@@ -132,76 +150,100 @@
     <!-- AUTOMATION SCRIPT -->
     <script>
         // --- Configuration ---
-        // !!! IMPORTANT: Change the values below to your GitHub username and repository name !!!
-        const USERNAME = 'jeffersontj'; // Change 'USERNAME-ANDA' to your GitHub username
-        const REPO_NAME = 'web-simulasi-bim'; // Change 'NAMA-REPO-ANDA' to your repository name (e.g., 'web-simulasi-bim')
-
-        // Path to the files folder within your GitHub repository
+        const USERNAME = 'jeffersontj'; // Your GitHub username
+        const REPO_NAME = 'web-simulasi-bim'; // Your repository name
         const FOLDER_PATH = 'files/ms-excel';
         // --------------------
 
-        // Function to fetch and display files
-        async function fetchAndDisplayFiles() {
-            const fileListElement = document.getElementById('file-list');
-            const loadingElement = document.getElementById('loading');
+        // --- Global Variables ---
+        let allFiles = []; // To store the fetched file list
+        const fileListElement = document.getElementById('file-list');
+        const loadingElement = document.getElementById('loading');
+        const searchBar = document.getElementById('search-bar');
+        const sortFilter = document.getElementById('sort-filter');
 
-            try {
-                // 1. Validate configuration
-                if (USERNAME === 'jeffersontj' || REPO_NAME === 'web-simulasi-bim') {
-                    // This is a check, if it's still the default, show error
-                    // But since I've set it, I'll remove the error for your convenience
-                    // (In a real scenario, you'd keep the error check)
+        /**
+         * Renders the file list based on the current search and sort values.
+         */
+        function renderFileList() {
+            const searchTerm = searchBar.value.toLowerCase();
+            const sortOrder = sortFilter.value;
+
+            // 1. Filter files based on search term
+            const filteredFiles = allFiles.filter(file =>
+                file.name.toLowerCase().includes(searchTerm)
+            );
+
+            // 2. Sort files based on selected order
+            filteredFiles.sort((a, b) => {
+                if (sortOrder === 'name-asc') {
+                    return a.name.localeCompare(b.name);
+                } else { // name-desc
+                    return b.name.localeCompare(a.name);
                 }
+            });
 
-                // 2. Build the GitHub API URL
+            // 3. Check if list is empty
+            if (filteredFiles.length === 0) {
+                fileListElement.innerHTML = '<li class="p-6 text-center text-gray-500">No files found.</li>';
+                return;
+            }
+
+            // 4. Build and render the HTML
+            const iconHtml = `
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-green-500 mr-4 hidden sm:block">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V13.5Zm0 2.25h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V18Zm2.498-6.75h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V13.5Zm0 2.25h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V18Zm2.504-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5ZM8.25 6h7.5v2.25h-7.5V6ZM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 0 0 2.25 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0 0 12 2.25Z" />
+                </svg>
+            `;
+
+            let htmlContent = '';
+            filteredFiles.forEach(file => {
+                const downloadUrl = `https://github.com/${USERNAME}/${REPO_NAME}/raw/main/${file.path}`;
+                htmlContent += `
+                    <li class="p-4 sm:p-6 flex items-center justify-between hover:bg-gray-50">
+                        <div class="flex items-center min-w-0">
+                            ${iconHtml}
+                            <div class="min-w-0">
+                                <p class="text-lg font-medium text-blue-600 truncate">${file.name}</p>
+                            </div>
+                        </div>
+                        <a href="${downloadUrl}" 
+                           class="ml-4 inline-block bg-blue-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors text-sm"
+                           download>
+                           Download
+                        </a>
+                    </li>
+                `;
+            });
+
+            fileListElement.innerHTML = htmlContent;
+        }
+
+        /**
+         * Fetches the file list from the GitHub API.
+         */
+        async function fetchAndDisplayFiles() {
+            try {
                 const apiUrl = `https://api.github.com/repos/${USERNAME}/${REPO_NAME}/contents/${FOLDER_PATH}`;
-
-                // 3. Fetch data from the API
                 const response = await fetch(apiUrl);
+                
                 if (!response.ok) {
                     throw new Error(`Failed to fetch data from GitHub API (Error ${response.status})`);
                 }
                 
                 const files = await response.json();
-
-                // 4. Hide loading
                 loadingElement.style.display = 'none';
 
-                // 5. Check if files exist
                 if (!Array.isArray(files) || files.length === 0) {
                     fileListElement.innerHTML = '<li class="p-6 text-center text-gray-500">No files found in this folder.</li>';
                     return;
                 }
 
-                // 6. Build the HTML list
-                let htmlContent = '';
-                files.forEach(file => {
-                    // Only show files, not folders
-                    if (file.type === 'file') {
-                        // NEW: Construct a URL that forces download
-                        const downloadUrl = `https://github.com/${USERNAME}/${REPO_NAME}/raw/main/${file.path}`;
-
-                        htmlContent += `
-                            <li class="p-4 sm:p-6 flex items-center justify-between hover:bg-gray-50">
-                                <div class="flex items-center min-w-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-green-500 mr-4 hidden sm:block">
-                                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V13.5Zm0 2.25h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V18Zm2.498-6.75h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V13.5Zm0 2.25h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V18Zm2.504-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5ZM8.25 6h7.5v2.25h-7.5V6ZM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 0 0 2.25 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0 0 12 2.25Z" />
-                                    </svg>
-                                    <div class="min-w-0">
-                                        <p class="text-lg font-medium text-blue-600 truncate">${file.name}</p>
-                                    </div>
-                                </div>
-                                <a href="${downloadUrl}" 
-                                   class="ml-4 inline-block bg-blue-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors text-sm"
-                                   download>
-                                   Download
-                                </a>
-                            </li>
-                        `;
-                    }
-                });
-
-                fileListElement.innerHTML = htmlContent;
+                // Store only files (not directories) in our global variable
+                allFiles = files.filter(file => file.type === 'file');
+                
+                // Perform the initial render
+                renderFileList();
 
             } catch (error) {
                 console.error('Error:', error);
@@ -210,8 +252,17 @@
             }
         }
 
-        // Run the function when the page loads
-        document.addEventListener('DOMContentLoaded', fetchAndDisplayFiles);
+        // --- Event Listeners ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initial fetch
+            fetchAndDisplayFiles();
+
+            // Listen for search input
+            searchBar.addEventListener('input', renderFileList);
+
+            // Listen for sort changes
+            sortFilter.addEventListener('change', renderFileList);
+        });
     </script>
     <script>
         function toggleMobileMenu() {
