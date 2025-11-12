@@ -72,7 +72,7 @@
                 <span>MS Excel</span>
             </div>
             
-            <h1 class="text-4xl font-bold mb-8 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">MS Excel Files (.xlsx)</h1>
+            <h1 class="text-4xl font-bold mb-8 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">MS Excel Files (.xlsx, .csv)</h1>
             <p class="text-lg text-gray-600 mb-10">
                 This file list is updated automatically. Click to download.
             </p>
@@ -117,7 +117,7 @@
                     <h4 class="text-lg font-semibold mb-4">Project Info</h4>
                     <ul class="space-y-2 text-gray-400">
                         <li>📍 National Taiwan University of Science and Technology</li>
-                        <li>📅 Academic Year 2024-2025</li>
+                        <li>📅 Academic Year 2025-2026</li>
                         <li>🏗️ Civil and Construction Engineering</li>
                     </ul>
                 </div>
@@ -147,8 +147,10 @@
 
             try {
                 // 1. Validate configuration
-                if (USERNAME === 'USERNAME-ANDA' || REPO_NAME === 'NAMA-REPO-ANDA') {
-                    throw new Error('Please edit this HTML file and set the USERNAME and REPO_NAME variables inside the <script> tag.');
+                if (USERNAME === 'jeffersontj' || REPO_NAME === 'web-simulasi-bim') {
+                    // This is a check, if it's still the default, show error
+                    // But since I've set it, I'll remove the error for your convenience
+                    // (In a real scenario, you'd keep the error check)
                 }
 
                 // 2. Build the GitHub API URL
@@ -176,6 +178,9 @@
                 files.forEach(file => {
                     // Only show files, not folders
                     if (file.type === 'file') {
+                        // NEW: Construct a URL that forces download
+                        const downloadUrl = `https://github.com/${USERNAME}/${REPO_NAME}/raw/main/${file.path}`;
+
                         htmlContent += `
                             <li class="p-4 sm:p-6 flex items-center justify-between hover:bg-gray-50">
                                 <div class="flex items-center min-w-0">
@@ -186,7 +191,7 @@
                                         <p class="text-lg font-medium text-blue-600 truncate">${file.name}</p>
                                     </div>
                                 </div>
-                                <a href="${file.download_url}" 
+                                <a href="${downloadUrl}" 
                                    class="ml-4 inline-block bg-blue-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors text-sm"
                                    download>
                                    Download
